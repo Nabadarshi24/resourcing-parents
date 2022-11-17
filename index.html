@@ -8,7 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
     <!-- font awesome cdn -->
-    
+    <script src="https://kit.fontawesome.com/232235215e.js" crossorigin="anonymous"></script>
     <!-- bootstrap cdn link -->
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
@@ -61,27 +61,315 @@
 
         <!-- end-region -->
 
+        <!-- main-search region starts here -->
+
+        <div class="main-search">
+          <div class="search-btn">
+            <img class="search-icon" src="images/search_icon.png" alt="">
+            <img class="reset-icon" src="images/reset_icon.png" alt="">
+          </div>
+          <div class="main-search-container">
+            <div class="main-search-flex-container">
+              <div class="search-item-container">
+                <div class="search-header">
+                  <div class="search-title">
+                    <h6>Keyword and program finder</h6>
+                    <span class="fa-solid fa-caret-down"></span>
+                  </div>
+                  <div class="search-field"></div>
+                </div>
+                <div class="search-item-content search-item-content1 d-none">
+                  <h3>What format of couese are you looking for?</h3>
+                  <label class="checkbox-container">One to One
+                    <input id="due" type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="checkbox-container checkbox-custom-margin">Groups or Seminars
+                    <input id="due" type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="checkbox-container checkbox-custom-margin">Online
+                    <input id="due" type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                  </label>
+                  <h3>Enter the course name if you know it</h3>
+                  <input type="text" id="course_name">
+                  <h3>OR search with a keyword</h3>
+                  <input type="text" id="search_course">
+                  <div class="buttons clearfix">
+                    <a class="reset-btn">
+                      <img src="images/refresh_white_icon.png" alt="">
+                    </a>
+                    <button class="show-courses">Show courses</button>
+                    <button class="filter-more">Filter some more</button>
+                  </div>
+                </div>
+              </div>
+              <div class="search-item-container">
+                <div class="search-header">
+                  <div class="search-title">
+                    <h6>What's it about?</h6>
+                    <span class="fa-solid fa-caret-down"></span>
+                  </div>
+                  <div class="search-field"></div>
+                </div>
+                <div class="search-item-content search-item-content2 d-none">
+                  <h3>What does your course need to be focused on?</h3>
+                  <label class="checkbox-container d-block">Children's Development (14)
+                    <input id="due" type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="checkbox-container d-block">Early Learning & Play (3)
+                    <input id="due" type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="checkbox-container d-block"> Family Relationships (3)
+                    <input id="due" type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="checkbox-container d-block">Family Challenges (1)
+                    <input id="due" type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="checkbox-container d-block"> Support Groups (0)
+                    <input id="due" type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="checkbox-container d-block">Community (0)
+                    <input id="due" type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                  </label>
+                  <div class="buttons clearfix">
+                    <a class="reset-btn">
+                      <img src="images/refresh_white_icon.png" alt="">
+                    </a>
+                    <button class="show-courses">Show courses</button>
+                    <button class="filter-more">Filter some more</button>
+                  </div>
+                </div>
+              </div>
+              <div class="search-item-container child-language-container">
+                <div class="search-header">
+                  <div class="search-title">
+                    <h6>Child's Age</h6>
+                    <span class="fa-solid fa-caret-down"></span>
+                  </div>
+                  <div class="search-field"></div>
+                </div>
+                <div class="search-item-content search-item-content3 d-none">
+                  <h3>What Age Group are the children that this course is about?</h3>
+                  <label class="checkbox-container d-block"> 0-1 - Infants
+                    <input id="due" type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="checkbox-container d-block">2-3 - Toddlers
+                    <input id="due" type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="checkbox-container d-block">  4-5 - Children
+                    <input id="due" type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="checkbox-container d-block">5-12 - Children
+                    <input id="due" type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="checkbox-container d-block">  Tween (10-12)
+                    <input id="due" type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="checkbox-container d-block"> 13-19 - Teens
+                    <input id="due" type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                  </label>
+                  <div class="buttons clearfix">
+                    <a class="reset-btn">
+                      <img src="images/refresh_white_icon.png" alt="">
+                    </a>
+                    <button class="show-courses">Show courses</button>
+                    <button class="filter-more">Filter some more</button>
+                  </div>
+                </div>
+              </div>
+              <div class="search-item-container where-container">
+                <div class="search-header">
+                  <div class="search-title">
+                    <h6>Where</h6>
+                    <span class="fa-solid fa-caret-down"></span>
+                  </div>
+                  <div class="search-field"></div>
+                </div>
+              </div>
+              <div class="search-item-container">
+                <div class="search-header">
+                  <div class="search-title">
+                    <h6>When</h6>
+                    <span class="fa-solid fa-caret-down"></span>
+                  </div>
+                  <div class="search-field"></div>
+                </div>
+              </div>
+              <div class="search-item-container">
+                <div class="search-header">
+                  <div class="search-title">
+                    <h6>Who is it for?</h6>
+                    <span class="fa-solid fa-caret-down"></span>
+                  </div>
+                  <div class="search-field"></div>
+                </div>
+                <div class="search-item-content search-item-content6 d-none">
+                  <h3>Who do you need the course directed towards?</h3>
+                  <label class="checkbox-container d-block">  Aboriginal & Torres Strait Islander Parents
+                    <input id="due" type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="checkbox-container d-block">Parents whose children are Aboriginal & Torres Strait Islander
+                    <input id="due" type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="checkbox-container d-block">Parents of children with additional needs
+                    <input id="due" type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="checkbox-container d-block">Parents who are separated or divorced
+                    <input id="due" type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="checkbox-container d-block">Multicultural Families
+                    <input id="due" type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="checkbox-container d-block">Kinship / Foster Carers
+                    <input id="due" type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="checkbox-container d-block">LGBTI Parents
+                    <input id="due" type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="checkbox-container d-block">Grandparents
+                    <input id="due" type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="checkbox-container d-block">Young Parents
+                    <input id="due" type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="checkbox-container d-block">Young Fathers
+                    <input id="due" type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="checkbox-container d-block">Young Mothers
+                    <input id="due" type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="checkbox-container d-block">Mothers
+                    <input id="due" type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="checkbox-container d-block"> Fathers
+                    <input id="due" type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                  </label>
+                  <div class="buttons clearfix">
+                    <a class="reset-btn">
+                      <img src="images/refresh_white_icon.png" alt="">
+                    </a>
+                    <button class="show-courses">Show courses</button>
+                    <button class="filter-more">Filter some more</button>
+                  </div>
+                </div>
+              </div>
+              <div class="search-item-container child-language-container">
+                <div class="search-header">
+                  <div class="search-title">
+                    <h6>Languages</h6>
+                    <span class="fa-solid fa-caret-down"></span>
+                  </div>
+                  <div class="search-field"></div>
+                </div>
+                <div class="search-item-content search-item-content3 d-none">
+                  <h3>What language do you prefer the course in?</h3>
+                  
+                  <div class="buttons clearfix">
+                    <a class="reset-btn">
+                      <img src="images/refresh_white_icon.png" alt="">
+                    </a>
+                    <button class="filter-more">Filter some more</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="main-search-submit-btn">
+            <span class="fa-solid fa-long-arrow-alt-right"></span>
+          </div>
+        </div>
+
+        <!-- end-region -->
         <!-- sidebar-region starts here -->
 
         <div class="sidebar">
-          <div class="hamburger">
-            <img src="images/navbar_icon.png" alt="">
-            <div class="close-btn d-none">
-              <img src="images/menu_close.png" alt="">
+            <div class="hamburger">
+              <span class="fas fa-bars"></span>
             </div>
             <div class="side-menu">
               <ul>
                 <li><a href="#">Homepage</a></li>
-                <li><a href="#">Parents</a></li>
-                <li><a href="#">Professionals</a></li>
-                <li><a href="#">Deadly Tots</a></li>
-                <li><a href="#">Contact Us</a></li>
+                <li>
+                  <div class="main-li">
+                    <a href="#">Parents</a>
+                    <span class="fa-solid fa-angle-down show-btn1"></span>
+                  </div>
+                  <ul class="sub-menu1">
+                    <li><a href="#">Popular Parenting</a></li>
+                    <li><a href="#">Courses Explained</a></li>
+                    <li><a href="#">Resources for Parents</a></li>
+                    <li><a href="#">Find Online Courses</a></li>
+                    <li><a href="#">Email notifications</a></li>
+                    <li><a href="#">LOVE Talk SING Read Play</a></li>
+                    <li><a href="#">Handy Apps & Websites</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <div class="main-li">
+                    <a href="#">Professionals</a>
+                    <span class="fa-solid fa-angle-down show-btn2"></span>
+                  </div>
+                  <ul class="sub-menu2">
+                    <li><a href="#">Add Parenting Courses</a></li>
+                    <li><a href="#">Training for Professionals</a></li>
+                    <li><a href="#">Practitioner's Directory</a></li>
+                    <li><a href="#">Groups and Conversations</a></li>
+                    <li><a href="#">Term Calendaras</a></li>
+                    <li><a href="#">Agency Planning Calendar</a></li>
+                    <li><a href="#">Email notifications</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <div class="main-li">
+                    <a href="#">Deadly Tots</a>
+                    <span class="fa-solid fa-angle-down show-btn3"></span>
+                  </div>
+                  <ul class="sub-menu3">
+                    <li><a href="#">Deadly Tots Projects</a></li>
+                    <li><a href="#">Aboriginal Resources  </a></li>
+                  </ul>
+                </li>
+                <li>
+                  <div class="main-li">
+                    <a href="#">Contact Us</a>
+                    <span class="fa-solid fa-angle-down show-btn4"></span>
+                  </div>
+                  <ul class="sub-menu4">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                  </ul>
+                </li>
               </ul>
             </div>
-
-          </div>
         </div>
-
 
         <!-- end-region -->
 
