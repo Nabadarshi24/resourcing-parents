@@ -73,6 +73,37 @@ input:focus {
 
 /* navbar media-query design starts here */
 
+@media screen and (max-width: 767px) {
+    
+    .navbar ul {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .custom-container {
+        max-width: 700px;
+        padding: 0 15px;
+    }
+
+    .navbar ul li {
+        margin: 0 10px;
+    }
+
+    .navbar ul li:first-child {
+        margin-top: -2px;
+    }
+    
+    
+    #unique a img {
+        margin-left: 5px;
+    }
+
+    .navbar ul li a {
+        font-size: 14px;
+    }
+}
+
 @media screen and (max-width: 1023px) and (min-width: 992px) {
     
     .custom-container {
@@ -118,30 +149,6 @@ input:focus {
 
     .navbar ul li a {
         font-size: 15px;
-    }
-}
-
-@media screen and (max-width: 991px) {
-    .custom-container {
-        max-width: 700px;
-        padding: 0 15px;
-    }
-
-    .navbar ul li {
-        margin: 0 10px;
-    }
-
-    .navbar ul li:first-child {
-        margin-top: -2px;
-    }
-    
-    
-    #unique a img {
-        margin-left: 5px;
-    }
-
-    .navbar ul li a {
-        font-size: 14px;
     }
 }
 
@@ -199,8 +206,18 @@ input::-webkit-input-placeholder {
 /* top-search media Query starts here */
 
 @media screen and (max-width: 991px) {
+
+    .top-search {
+        top: 0;
+    }
     .hidden-search-by-suburb {
         width: 225px;
+        height: 42px;
+        margin-right: -184px;
+    }
+
+    .hidden-search-by-suburb.show {
+        height: 166px;
     }
 
     .hidden-search-by-suburb input {
@@ -376,7 +393,7 @@ input::-webkit-input-placeholder {
     }
 
     .card-text p {
-        font-size: 16px;
+        font-size: 13px;
         line-height: 18px;
     }
 
@@ -427,7 +444,8 @@ input::-webkit-input-placeholder {
 
 .search-btn {
     flex-basis: 43px;
-    height: 85px;
+    height: 42px;
+    overflow: hidden;
 }
 
 .search-btn img {
@@ -441,11 +459,14 @@ input::-webkit-input-placeholder {
 
 .main-search-container {
     flex-basis: 100%;
+    height: 0px;
+    overflow: hidden;
 }
 
 .main-search-submit-btn {
     flex-basis: 43px;
-    height: 85px;
+    height: 0px;
+    overflow: hidden;
     background-color: #0d51b9;
     color: white;
     text-align: center;
@@ -747,21 +768,34 @@ select {
 
 /* ends here */
 
+/* media-query design starts here */
+
+@media screen and (max-width: 991px) {
+    .main-search {
+        position: absolute;
+        top: 0;
+        margin-top: 0;
+    }
+}
+
+
+/* ends here */
+
 
 /* ends here */
 
 /* sidebar_region design starts here */
 
 .hamburger {
-    position: fixed;
+    position: absolute;
     left: 0;
-    top: 213px;
+    top: 170px;
     margin-top: 1px;
-    width: 42px;
+    width: 39px;
     height: 40px;
     background: #757575;
     cursor: pointer;
-    transition: left 0.2s ease;
+    transition: left 0.3s ease;
     text-align: center;
     z-index: 2;
 }
@@ -781,15 +815,15 @@ select {
 }
 
 .side-menu {
-    position: fixed;
+    position: absolute;
     padding: 34px 0 0 19px;
-    top: 214px;
+    top: 171px;
     left: -340px;
     width: 340px;
-    height: 100%;
+    min-height: calc(100vh - 171px);
     background-color: #757575;
     z-index: 1;
-    transition: left 0.2s ease;
+    transition: left 0.3s ease;
 }
 
 .side-menu.show {
@@ -872,6 +906,20 @@ select {
     border-bottom: 1px solid white;
 }
 
+/* media-query design starts here */
+
+@media screen and (max-width: 991px) {
+    .hamburger {
+        top: 42px;
+    }
+
+    .side-menu {
+        top: 43px;
+    }
+}
+
+/* ends here */
+
 /* ends here */
 
 /* right-sidebar design starts here */
@@ -910,7 +958,7 @@ select {
 .translation-sidebar {
     position: absolute;
     right: 0;
-    top: 256px;
+    top: 213px;
     overflow: hidden;
 }
 
@@ -986,6 +1034,20 @@ select {
 .translation-sidebar ul li a img {
     width: 30px;
 }
+
+/* media-query design starts here */
+
+@media screen and (max-width: 991px) {
+    .notification-sidebar {
+        top: 42px;
+    }
+
+    .translation-sidebar {
+        top: 85px;
+    }
+}
+
+/* ends here */
 /* ends here */
 
 /* footer design stats here */
@@ -1042,6 +1104,10 @@ select {
 /* media-query design starts here */
 
 @media screen and (max-width: 991px) {
+
+    .footer {
+        align-items: flex-start;
+    }
 
     .footer-left {
         max-width: 50%;

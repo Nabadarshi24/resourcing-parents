@@ -7,6 +7,7 @@
 // });
 
 $('.hamburger').click(function(){
+    console.log(".hamb");
     $(this).toggleClass("click");
     $('.side-menu').toggleClass("show");
 });
