@@ -183,17 +183,26 @@ input:focus {
     overflow: hidden;
 }
 
-.search-by-suburb {
+/* .search-by-suburb {
     cursor: pointer;
     position: absolute;
     right: 0;
-}
+} */
 
 .hidden-search-by-suburb {
     width: 675px;
     margin-right: -475px;
     background-color: #f26522;
     cursor: pointer;
+    transition: margin-right 0.7s;
+}
+
+.hidden-search-by-suburb.hide {
+    margin-right: -475px;
+}
+
+.hidden-search-by-suburb.show {
+    margin-right: 0;
 }
 
 input {
@@ -227,7 +236,9 @@ input::-webkit-input-placeholder {
 @media screen and (max-width: 991px) {
 
     .top-search {
+        position: fixed;
         top: 0;
+        z-index: 5;
     }
     .hidden-search-by-suburb {
         width: 225px;
@@ -259,7 +270,7 @@ input::-webkit-input-placeholder {
 /* resourcing parents design starts here */
 
 .resourcing-parents {
-    margin-top: 185px;
+    margin-top: 180px;
 }
 
 .resourcing-parents h1 {
@@ -281,7 +292,7 @@ input::-webkit-input-placeholder {
 @media screen and (max-width: 1370px) and (min-width: 992px) {
 
     .resourcing-parents {
-        margin-top: 50px;
+        margin-top: 185px;
     }
 
     .resourcing-parents h1 {
@@ -295,9 +306,9 @@ input::-webkit-input-placeholder {
 
 @media screen and (max-width: 991px) {
     
-    .resourcing-parents {
+    /* .resourcing-parents {
         margin-top: 50px;
-    }
+    } */
 
     .resourcing-parents h1 {
         font-size: 31px;
@@ -336,7 +347,7 @@ input::-webkit-input-placeholder {
 }
 
 .cards {
-    margin-top: 145px;
+    margin-top: 140px;
 }
 
 .card {
@@ -507,13 +518,15 @@ input::-webkit-input-placeholder {
 }
 
 .main-search {
+    position: absolute;
+    width: 100%;
     display: flex;
     margin-top: 43px;
 }
 
 .search-btn {
     flex-basis: 43px;
-    height: 42px;
+    height: 84px;
     overflow: hidden;
 }
 
@@ -528,12 +541,12 @@ input::-webkit-input-placeholder {
 
 .main-search-container {
     flex-basis: 100%;
-    height: 85px;
+    display: none;
     overflow: hidden;
 }
 
 .main-search-submit-btn {
-    flex-basis: 43px;
+    flex-basis: 42px;
     height: 84px;
     overflow: hidden;
     background-color: #0d51b9;
@@ -590,11 +603,13 @@ input::-webkit-input-placeholder {
 
 .search-field {
     height: 40px;
+    background-color: white;
 }
 
 .search-item-content {
     position: absolute;
     width: 460px;
+    display: none;
     border: 2px solid #0845a3;
     background-color: #ffffff;
     margin-top: -2px;
@@ -849,12 +864,17 @@ select {
         top: 0;
         margin-top: 0;
         width: calc(100% - 42px);
-        z-index: 5;
+        z-index: 2;
+
     }
 
-    .main-search-container {
-        height: auto;
+    /* .main-search-container {
+        height: 0;
     }
+
+    .main-search-container.show {
+        height: auto;
+    } */
 
     .main-search-flex-container {
         flex-flow: row wrap;
@@ -866,9 +886,15 @@ select {
         height: auto;
     }
 
+    .search-header{
+        border-top: 1px solid #0845a3;
+        border-bottom: 1px solid #0845a3;
+    }
+
     .search-item-content {
-        position: absolute;
-        width: auto;
+        position: static;
+        width: 100%;
+        display: none;
 
     }
     .search-title h6 {
@@ -883,7 +909,7 @@ select {
         flex-basis: 100%;
         height: 42px;
         line-height: 42px;
-        border-top: 2px solid #0c4397;
+        border-top: 1px solid #0c4397;
     }
 }
 
@@ -906,13 +932,23 @@ select {
 
 /* sidebar_region design starts here */
 
+.sidebar {
+    position: absolute;
+    top: 0;
+    transition: all 0.7s;
+}
+
+.sidebar.show {
+    top: 42px;
+}
+
 .hamburger {
     position: absolute;
     left: 0;
     top: 170px;
     margin-top: 1px;
     width: 42px;
-    height: 40px;
+    height: 41px;
     background: #757575;
     cursor: pointer;
     transition: left 0.3s ease;
@@ -948,6 +984,7 @@ select {
 
 .side-menu.show {
     left: 0;
+    /* min-height: calc(100vh - 213px); */
 }
 
 .side-menu ul {
@@ -999,6 +1036,12 @@ select {
     border: none;
 }
 
+.side-menu ul .sub-menu.show {
+    display: block;
+    background-color: transparent;
+    border: none;
+}
+
 .side-menu ul .sub-menu2.show2 {
     display: block;
     background-color: transparent;
@@ -1030,6 +1073,7 @@ select {
 
 @media screen and (max-width: 991px) {
     .hamburger {
+
         top: 42px;
         width: 41px;
     }
@@ -1053,8 +1097,13 @@ select {
 
 .right-sidebar {
     position: absolute;
-    margin-top: -1px;
+    top: 170px;
     right: 0;
+    transition: all 0.7s;
+}
+
+.right-sidebar.show {
+    top: 212px;
 }
 
 .notification-sidebar {
@@ -1175,12 +1224,22 @@ select {
 /* media-query design starts here */
 
 @media screen and (max-width: 991px) {
-    .notification-sidebar {
+
+    .right-sidebar{
+        position: fixed;
+        right: 0;
         top: 42px;
     }
 
+    .right-sidebar.show {
+        top: 42px;
+    }
+    .notification-sidebar {
+        top: 0px;
+    }
+
     .translation-sidebar {
-        top: 85px;
+        top: 0px;
     }
 }
 
@@ -1194,7 +1253,7 @@ select {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 190px;
+    margin-top: 215px;
 }
 
 .footer-left {

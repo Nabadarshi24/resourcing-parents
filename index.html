@@ -52,11 +52,8 @@
     <!-- top-search region starts here -->
 
     <div class="top-search">
-      <!-- <div class="search-by-suburb d-none">
-        <img src="images/search_by_suburb_icon.png">
-      </div> -->
       <div class="hidden-search-by-suburb">
-        <img src="images/search_by_suburb_icon.png">
+        <img class="search-by-suburb" src="images/search_by_suburb_icon.png">
         <input type="text" placeholder="Enter a course name...">
         <input type="text" placeholder="Choose a location...">
         <button id="find_btn">Find</button>
@@ -76,18 +73,18 @@
       <div class="main-search-container">
         <div class="main-search-flex-container">
           <div class="search-item-container">
-            <div class="search-header">
+            <div class="search-header" name="search-item-content1">
               <div class="search-title">
                 <h6>Keyword and program finder</h6>
                 <span class="fa-solid fa-caret-down"></span>
               </div>
               <div class="search-field">
-                <input type="text">
               </div>
             </div>
             <div class="search-item-content search-item-content1">
               <h3>What format of couese are you looking for?</h3>
-              <label class="checkbox-container">One to One
+              <label class="checkbox-container">
+                <span >One to One</span>
                 <input type="checkbox">
                 <span class="checkmark"></span>
               </label>
@@ -113,14 +110,14 @@
             </div>
           </div>
           <div class="search-item-container">
-            <div class="search-header">
+            <div class="search-header" name="search-item-content2">
               <div class="search-title">
                 <h6>What's it about?</h6>
                 <span class="fa-solid fa-caret-down"></span>
               </div>
               <div class="search-field"></div>
             </div>
-            <div class="search-item-content search-item-content2 d-none">
+            <div class="search-item-content search-item-content2">
               <h3>What does your course need to be focused on?</h3>
               <label class="checkbox-container d-block">Children's Development (14)
                 <input type="checkbox">
@@ -236,14 +233,14 @@
             </div>
           </div>
           <div class="search-item-container child-language-container">
-            <div class="search-header">
+            <div class="search-header" name="search-item-content3">
               <div class="search-title">
                 <h6>Child's Age</h6>
                 <span class="fa-solid fa-caret-down"></span>
               </div>
               <div class="search-field"></div>
             </div>
-            <div class="search-item-content search-item-content3 d-none">
+            <div class="search-item-content search-item-content3">
               <h3>What Age Group are the children that this course is about?</h3>
               <label class="checkbox-container d-block"> 0-1 - Infants
                 <input type="checkbox">
@@ -279,14 +276,14 @@
             </div>
           </div>
           <div class="search-item-container where-container">
-            <div class="search-header">
+            <div class="search-header" name="search-item-content4">
               <div class="search-title">
                 <h6>Where</h6>
                 <span class="fa-solid fa-caret-down"></span>
               </div>
               <div class="search-field"></div>
             </div>
-            <div class="search-item-content search-item-content4 d-none">
+            <div class="search-item-content search-item-content4">
               <h3>Where would you like to attend this course?</h3>
               <div class="postcode-proximity clearfix">
                 <div class="postcode">
@@ -338,14 +335,14 @@
             </div>
           </div>
           <div class="search-item-container">
-            <div class="search-header">
+            <div class="search-header" name="search-item-content5" >
               <div class="search-title">
                 <h6>When</h6>
                 <span class="fa-solid fa-caret-down"></span>
               </div>
               <div class="search-field"></div>
             </div>
-            <div class="search-item-content search-item-content5 d-none">
+            <div class="search-item-content search-item-content5">
               <h3>What date or timeframe did you have in mind?</h3>
               <div class="timeframe clearfix">
                 <div class="input-forms input-margin">
@@ -413,14 +410,14 @@
             </div>
           </div>
           <div class="search-item-container">
-            <div class="search-header">
+            <div class="search-header" name="search-item-content6">
               <div class="search-title">
                 <h6>Who is it for?</h6>
                 <span class="fa-solid fa-caret-down"></span>
               </div>
               <div class="search-field"></div>
             </div>
-            <div class="search-item-content search-item-content6 d-none">
+            <div class="search-item-content search-item-content6">
               <h3>Who do you need the course directed towards?</h3>
               <label class="checkbox-container d-block"> Aboriginal & Torres Strait Islander Parents
                 <input type="checkbox">
@@ -484,14 +481,14 @@
             </div>
           </div>
           <div class="search-item-container child-language-container right-padding">
-            <div class="search-header">
+            <div class="search-header" name="search-item-content7">
               <div class="search-title">
                 <h6>Languages</h6>
                 <span class="fa-solid fa-caret-down"></span>
               </div>
               <div class="search-field"></div>
             </div>
-            <div class="search-item-content search-item-content7 d-none">
+            <div class="search-item-content search-item-content7">
               <h3>What language do you prefer the course in?</h3>
               <select id="country" name="country">
                 <option value="please select">Please select</option>
@@ -542,9 +539,9 @@
           <li>
             <div class="main-li">
               <a href="#">Parents</a>
-              <span class="fa-solid fa-angle-down show-btn1"></span>
+              <span class="fa-solid fa-angle-down show-btn show-btn1" name1="show-btn1" name="sub-menu1"></span>
             </div>
-            <ul class="sub-menu1">
+            <ul class="sub-menu sub-menu1">
               <li><a href="#">Popular Parenting</a></li>
               <li><a href="#">Courses Explained</a></li>
               <li><a href="#">Resources for Parents</a></li>
@@ -557,9 +554,9 @@
           <li>
             <div class="main-li">
               <a href="#">Professionals</a>
-              <span class="fa-solid fa-angle-down show-btn2"></span>
+              <span class="fa-solid fa-angle-down show-btn show-btn2" name1="show-btn2" name="sub-menu2"></span>
             </div>
-            <ul class="sub-menu2">
+            <ul class="sub-menu sub-menu2">
               <li><a href="#">Add Parenting Courses</a></li>
               <li><a href="#">Training for Professionals</a></li>
               <li><a href="#">Practitioner's Directory</a></li>
@@ -572,9 +569,9 @@
           <li>
             <div class="main-li">
               <a href="#">Deadly Tots</a>
-              <span class="fa-solid fa-angle-down show-btn3"></span>
+              <span class="fa-solid fa-angle-down show-btn show-btn3" name1="show-btn3" name="sub-menu3"></span>
             </div>
-            <ul class="sub-menu3">
+            <ul class="sub-menu sub-menu3">
               <li><a href="#">Deadly Tots Projects</a></li>
               <li><a href="#">Aboriginal Resources </a></li>
             </ul>
@@ -582,9 +579,9 @@
           <li>
             <div class="main-li">
               <a href="#">Contact Us</a>
-              <span class="fa-solid fa-angle-down show-btn4"></span>
+              <span class="fa-solid fa-angle-down show-btn show-btn4" name1="show-btn4" name="sub-menu4"></span>
             </div>
-            <ul class="sub-menu4">
+            <ul class="sub-menu sub-menu4">
               <li><a href="#">About Us</a></li>
               <li><a href="#">Terms & Conditions</a></li>
               <li><a href="#">Privacy Policy</a></li>
