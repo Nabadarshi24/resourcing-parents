@@ -79,21 +79,24 @@
                 <span class="fa-solid fa-caret-down"></span>
               </div>
               <div class="search-field">
+                <p id="value_list"></p>
               </div>
             </div>
             <div class="search-item-content search-item-content1">
               <h3>What format of couese are you looking for?</h3>
               <label class="checkbox-container">
-                <span >One to One</span>
-                <input type="checkbox">
+                <span for="one to one">One to One</span>
+                <input type="checkbox" value="One to One" class="checkbox" id="one_to_one">
                 <span class="checkmark"></span>
               </label>
-              <label class="checkbox-container checkbox-custom-margin">Groups or Seminars
-                <input type="checkbox">
+              <label class="checkbox-container checkbox-custom-margin">
+                <span for="groups or seminars">Groups or Seminars</span>
+                <input type="checkbox" value="Groups or Seminars" class="checkbox" id="groups_seminars">
                 <span class="checkmark"></span>
               </label>
-              <label class="checkbox-container checkbox-custom-margin">Online
-                <input type="checkbox">
+              <label class="checkbox-container checkbox-custom-margin">
+                <span for="online">Online</span>
+                <input type="checkbox" value="Online" class="checkbox" id="online">
                 <span class="checkmark"></span>
               </label>
               <h3>Enter the course name if you know it</h3>
@@ -105,7 +108,7 @@
                   <img src="images/refresh_white_icon.png" alt="">
                 </a>
                 <button class="show-courses">Show courses</button>
-                <button class="filter-more">Filter some more</button>
+                <button class="filter-more" name="filter-more" >Filter some more</button>
               </div>
             </div>
           </div>
@@ -115,16 +118,18 @@
                 <h6>What's it about?</h6>
                 <span class="fa-solid fa-caret-down"></span>
               </div>
-              <div class="search-field"></div>
+              <div class="search-field">
+                <p id="value_list"></p>
+              </div>
             </div>
             <div class="search-item-content search-item-content2">
               <h3>What does your course need to be focused on?</h3>
-              <label class="checkbox-container d-block">Children's Development (14)
-                <input type="checkbox">
+              <label for="event-topic-1" class="checkbox-container" id="parent-checkbox1">Children's  Development (14)
+                <input type="checkbox" id="event-topic-1">
                 <span class="checkmark"></span>
               </label>
-              <div class="sub-checkbox">
-                <label class="checkbox-container d-block">Additionak Concerns (0)
+              <div class="sub-checkbox" id="child-checkbox1">
+                <label class="checkbox-container d-block">Additional Concerns (0)
                   <input type="checkbox">
                   <span class="checkmark"></span>
                 </label>
@@ -141,11 +146,11 @@
                   <span class="checkmark"></span>
                 </label>
               </div>
-              <label class="checkbox-container d-block">Early Learning & Play (3)
-                <input type="checkbox">
+              <label class="checkbox-container d-block" id="parent-checkbox2">Early Learning & Play (3)
+                <input type="checkbox" id="event-topic-1">
                 <span class="checkmark"></span>
               </label>
-              <div class="sub-checkbox">
+              <div class="sub-checkbox" id="child-checkbox2">
                 <label class="checkbox-container d-block">Playgroup (43)
                   <input type="checkbox">
                   <span class="checkmark"></span>
@@ -163,11 +168,11 @@
                   <span class="checkmark"></span>
                 </label>
               </div>
-              <label class="checkbox-container d-block"> Family Relationships (3)
+              <label class="checkbox-container d-block" id="parent-checkbox3"> Family Relationships (3)
                 <input type="checkbox">
                 <span class="checkmark"></span>
               </label>
-              <div class="sub-checkbox">
+              <div class="sub-checkbox" id="child-checkbox3">
                 <label class="checkbox-container d-block"> Attachment (4)
                   <input type="checkbox">
                   <span class="checkmark"></span>
@@ -177,11 +182,11 @@
                   <span class="checkmark"></span>
                 </label>
               </div>
-              <label class="checkbox-container d-block">Family Challenges (9)
+              <label class="checkbox-container d-block" id="parent-checkbox4">Family Challenges (9)
                 <input type="checkbox">
                 <span class="checkmark"></span>
               </label>
-              <div class="sub-checkbox">
+              <div class="sub-checkbox" id="child-checkbox4">
                 <label class="checkbox-container d-block"> Separation (8)
                   <input type="checkbox">
                   <span class="checkmark"></span>
@@ -199,21 +204,21 @@
                   <span class="checkmark"></span>
                 </label>
               </div>
-              <label class="checkbox-container d-block"> Support Groups (2)
+              <label class="checkbox-container d-block" id="parent-checkbox5"> Support Groups (2)
                 <input type="checkbox">
                 <span class="checkmark"></span>
               </label>
-              <div class="sub-checkbox">
+              <div class="sub-checkbox" id="child-checkbox5">
                 <label class="checkbox-container d-block"> Support Groups (2)
                   <input type="checkbox">
                   <span class="checkmark"></span>
                 </label>
               </div>
-              <label class="checkbox-container d-block">Community (16)
+              <label class="checkbox-container d-block" id="parent-checkbox6">Community (16)
                 <input type="checkbox">
                 <span class="checkmark"></span>
               </label>
-              <div class="sub-checkbox">
+              <div class="sub-checkbox" id="child-checkbox6">
                 <label class="checkbox-container d-block"> Community Events (16)
                   <input type="checkbox">
                   <span class="checkmark"></span>
@@ -228,7 +233,7 @@
                   <img src="images/refresh_white_icon.png" alt="">
                 </a>
                 <button class="show-courses">Show courses</button>
-                <button class="filter-more">Filter some more</button>
+                <button class="filter-more" name="filter-more">Filter some more</button>
               </div>
             </div>
           </div>
@@ -271,7 +276,7 @@
                   <img src="images/refresh_white_icon.png" alt="">
                 </a>
                 <button class="show-courses">Show courses</button>
-                <button class="filter-more">Filter some more</button>
+                <button class="filter-more" name="filter-more">Filter some more</button>
               </div>
             </div>
           </div>
@@ -330,7 +335,7 @@
                   <img src="images/refresh_white_icon.png" alt="">
                 </a>
                 <button class="show-courses">Show courses</button>
-                <button class="filter-more">Filter some more</button>
+                <button class="filter-more" name="filter-more">Filter some more</button>
               </div>
             </div>
           </div>
@@ -405,7 +410,7 @@
                   <img src="images/refresh_white_icon.png" alt="">
                 </a>
                 <button class="show-courses">Show courses</button>
-                <button class="filter-more">Filter some more</button>
+                <button class="filter-more" name="filter-more">Filter some more</button>
               </div>
             </div>
           </div>
@@ -476,7 +481,7 @@
                   <img src="images/refresh_white_icon.png" alt="">
                 </a>
                 <button class="show-courses">Show courses</button>
-                <button class="filter-more">Filter some more</button>
+                <button class="filter-more" name="filter-more">Filter some more</button>
               </div>
             </div>
           </div>
@@ -486,7 +491,9 @@
                 <h6>Languages</h6>
                 <span class="fa-solid fa-caret-down"></span>
               </div>
-              <div class="search-field"></div>
+              <div class="search-field">
+                <p id="value_list"></p>
+              </div>
             </div>
             <div class="search-item-content search-item-content7">
               <h3>What language do you prefer the course in?</h3>

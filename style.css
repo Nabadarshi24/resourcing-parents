@@ -606,6 +606,14 @@ input::-webkit-input-placeholder {
     background-color: white;
 }
 
+.search-field p {
+    height: inherit;
+    margin-bottom: 0;
+    color: #3f51b5;
+    line-height: 40px;
+    padding-left: 8px;
+}
+
 .search-item-content {
     position: absolute;
     width: 460px;
@@ -640,6 +648,7 @@ input::-webkit-input-placeholder {
     -ms-user-select: none;
     user-select: none;
 }
+
 
 .checkbox-custom-margin {
     margin-left: 10px;
@@ -791,6 +800,24 @@ select {
 
 .sub-checkbox {
     margin-left: 30px;
+}
+
+#child-checkbox1{
+    display: none;
+}
+#child-checkbox2{
+    display: none;
+}
+#child-checkbox3{
+    display: none;
+}
+#child-checkbox4{
+    display: none;
+}
+#child-checkbox5{
+    display: none;
+}
+#child-checkbox6{
     display: none;
 }
 
