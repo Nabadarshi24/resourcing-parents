@@ -79,7 +79,7 @@
                 <span class="fa-solid fa-caret-down"></span>
               </div>
               <div class="search-field">
-                <p id="value_list"></p>
+                <p id="value_list1"></p>
               </div>
             </div>
             <div class="search-item-content search-item-content1">
@@ -119,112 +119,118 @@
                 <span class="fa-solid fa-caret-down"></span>
               </div>
               <div class="search-field">
-                <p id="value_list"></p>
+                <p id="value_list2"></p>
               </div>
             </div>
             <div class="search-item-content search-item-content2">
               <h3>What does your course need to be focused on?</h3>
-              <label for="event-topic-1" class="checkbox-container" id="parent-checkbox1">Children's  Development (14)
-                <input type="checkbox" id="event-topic-1">
+              <label class="checkbox-container select-all" id="parent-checkbox1">
+                <span for="event-topic-1" >Children's  Development (14)</span>
+                <input type="checkbox" id="event-topic-1" value="Children's Development">
                 <span class="checkmark"></span>
               </label>
-              <div class="sub-checkbox" id="child-checkbox1">
-                <label class="checkbox-container d-block">Additional Concerns (0)
-                  <input type="checkbox">
+              <div class="sub-checkbox-container" id="child-checkbox1">
+                <label for="additional-concerns" class="checkbox-container d-block">Additional Concerns (0)
+                  <input type="checkbox" id="additional-concerns" class="sub-checkbox1" value="Additional Concerns">
                   <span class="checkmark"></span>
                 </label>
-                <label class="checkbox-container d-block">Behavior (23)
-                  <input type="checkbox">
+                <label for="behavior" class="checkbox-container d-block">Behavior (23)
+                  <input type="checkbox" id="behavior" class="sub-checkbox1" value="Behavior">
                   <span class="checkmark"></span>
                 </label>
-                <label class="checkbox-container d-block">Emotional and Social (18)
-                  <input type="checkbox">
+                <label for="emotional_social" class="checkbox-container d-block">Emotional & Social (18)
+                  <input type="checkbox" id="emotional_social" class="sub-checkbox1" value="Emotional & Social">
                   <span class="checkmark"></span>
                 </label>
-                <label class="checkbox-container d-block">health (5)
-                  <input type="checkbox">
+                <label for="health" class="checkbox-container d-block">Health (5)
+                  <input type="checkbox" id="health" class="sub-checkbox1" value="Health">
                   <span class="checkmark"></span>
                 </label>
               </div>
-              <label class="checkbox-container d-block" id="parent-checkbox2">Early Learning & Play (3)
-                <input type="checkbox" id="event-topic-1">
+              <label class="checkbox-container d-block" id="parent-checkbox2">
+                <span for="event-topic-2">Early Learning & Play (3)</span>
+                <input type="checkbox" id="event-topic-2" value="Early Learning & Play">
                 <span class="checkmark"></span>
               </label>
-              <div class="sub-checkbox" id="child-checkbox2">
-                <label class="checkbox-container d-block">Playgroup (43)
-                  <input type="checkbox">
+              <div class="sub-checkbox-container" id="child-checkbox2">
+                <label for="playgroup" class="checkbox-container d-block">Playgroup (43)
+                  <input type="checkbox" id="playgroup" class="sub-checkbox2" value="Playgroup">
                   <span class="checkmark"></span>
                 </label>
-                <label class="checkbox-container d-block">Play and Learn (11)
-                  <input type="checkbox">
+                <label for="play_learn" class="checkbox-container d-block">Play and Learn (11)
+                  <input type="checkbox" id="play_learn" class="sub-checkbox2" value="Play and Learn">
                   <span class="checkmark"></span>
                 </label>
-                <label class="checkbox-container d-block">Transition to School (1)
-                  <input type="checkbox">
+                <label for="transition_school" class="checkbox-container d-block">Transition to School (1)
+                  <input type="checkbox" id="transition_school" class="sub-checkbox2" value="Transition to School (1)">
                   <span class="checkmark"></span>
                 </label>
-                <label class="checkbox-container d-block">Reading, Singing, Learning (6)
-                  <input type="checkbox">
+                <label for="reading" class="checkbox-container d-block">Reading, Singing, Learning (6)
+                  <input type="checkbox" id="reading" class="sub-checkbox2" value="Reading, Singing, Learning (6)">
                   <span class="checkmark"></span>
                 </label>
               </div>
-              <label class="checkbox-container d-block" id="parent-checkbox3"> Family Relationships (3)
-                <input type="checkbox">
+              <label class="checkbox-container d-block" id="parent-checkbox3">
+                <span for="event-topic-3">Family Relationships (3)</span>
+                <input type="checkbox" id="event-topic-3" value="Family Relationships">
                 <span class="checkmark"></span>
               </label>
-              <div class="sub-checkbox" id="child-checkbox3">
-                <label class="checkbox-container d-block"> Attachment (4)
-                  <input type="checkbox">
+              <div class="sub-checkbox-container" id="child-checkbox3">
+                <label for="attachment" class="checkbox-container d-block"> Attachment (4)
+                  <input type="checkbox" id="attachment" class="sub-checkbox3" value="Attachment">
                   <span class="checkmark"></span>
                 </label>
-                <label class="checkbox-container d-block"> Relationship Building (12)
-                  <input type="checkbox">
+                <label for="relationship" class="checkbox-container d-block"> Relationship Building (12)
+                  <input type="checkbox" id="relationship" class="sub-checkbox3" value="Relationship Building">
                   <span class="checkmark"></span>
                 </label>
               </div>
-              <label class="checkbox-container d-block" id="parent-checkbox4">Family Challenges (9)
-                <input type="checkbox">
+              <label class="checkbox-container d-block" id="parent-checkbox4">
+                <span for="event-topic-4">Family Challenges (9)</span>
+                <input type="checkbox" id="event-topic-4" value="Family Challenges">
                 <span class="checkmark"></span>
               </label>
-              <div class="sub-checkbox" id="child-checkbox4">
-                <label class="checkbox-container d-block"> Separation (8)
-                  <input type="checkbox">
+              <div class="sub-checkbox-container" id="child-checkbox4">
+                <label for="separation" class="checkbox-container d-block"> Separation (8)
+                  <input type="checkbox" id="separation" class="sub-checkbox4" value="Separation">
                   <span class="checkmark"></span>
                 </label>
-                <label class="checkbox-container d-block"> Facing Multiple Challenges (1)
-                  <input type="checkbox">
+                <label for="challenges" class="checkbox-container d-block"> Facing Multiple Challenges (1)
+                  <input type="checkbox" id="challenges" class="sub-checkbox4" value="Facing Multiple Challenges">
                   <span class="checkmark"></span>
                 </label>
-                <label class="checkbox-container d-block">Children in Out of Home Care (0)
-                  <input type="checkbox">
+                <label for="children_care" class="checkbox-container d-block">Children in Out of Home Care (0)
+                  <input type="checkbox" id="children_care" class="sub-checkbox4" value="Children in Out of Home Care">
                   <span class="checkmark"></span>
                 </label>
-                <label class="checkbox-container d-block">Parents who are foster carers (0)
-                  <input type="checkbox">
+                <label for="parents_carer" class="checkbox-container d-block">Parents who are foster carers (0)
+                  <input type="checkbox" id="parents_carer" class="sub-checkbox4" value="Parents who are foster carers">
                   <span class="checkmark"></span>
                 </label>
               </div>
-              <label class="checkbox-container d-block" id="parent-checkbox5"> Support Groups (2)
-                <input type="checkbox">
+              <label class="checkbox-container d-block" id="parent-checkbox5">
+                <span for="event-topic-5"> Support Groups (2)</span>
+                <input type="checkbox" id="event-topic-5" value="Support Groups (2)">
                 <span class="checkmark"></span>
               </label>
-              <div class="sub-checkbox" id="child-checkbox5">
-                <label class="checkbox-container d-block"> Support Groups (2)
-                  <input type="checkbox">
+              <div class="sub-checkbox-container" id="child-checkbox5">
+                <label for="support_groups" class="checkbox-container d-block"> Support Groups (2)
+                  <input type="checkbox" id="support_groups" class="sub-checkbox5" value="Support Groups">
                   <span class="checkmark"></span>
                 </label>
               </div>
-              <label class="checkbox-container d-block" id="parent-checkbox6">Community (16)
-                <input type="checkbox">
+              <label class="checkbox-container d-block" id="parent-checkbox6">
+                <span for="event-topic-6">Community (16)</span>
+                <input type="checkbox" id="event-topic-6" value="Community">
                 <span class="checkmark"></span>
               </label>
-              <div class="sub-checkbox" id="child-checkbox6">
-                <label class="checkbox-container d-block"> Community Events (16)
-                  <input type="checkbox">
+              <div class="sub-checkbox-container" id="child-checkbox6">
+                <label for="community_event" class="checkbox-container d-block"> Community Events (16)
+                  <input type="checkbox" id="community_event" class="sub-checkbox6" value="Community Events">
                   <span class="checkmark"></span>
                 </label>
-                <label class="checkbox-container d-block"> Community Noticeboard (0)
-                  <input type="checkbox">
+                <label for="community_notice" class="checkbox-container d-block"> Community Noticeboard (0)
+                  <input type="checkbox" id="community_notice" class="sub-checkbox6" value="Community Noticeboard">
                   <span class="checkmark"></span>
                 </label>
               </div>
@@ -243,32 +249,34 @@
                 <h6>Child's Age</h6>
                 <span class="fa-solid fa-caret-down"></span>
               </div>
-              <div class="search-field"></div>
+              <div class="search-field">
+                <p id="value_list3"></p>
+              </div>
             </div>
             <div class="search-item-content search-item-content3">
               <h3>What Age Group are the children that this course is about?</h3>
               <label class="checkbox-container d-block"> 0-1 - Infants
-                <input type="checkbox">
+                <input type="checkbox" class="checkbox2" value="0-1 - Infants">
                 <span class="checkmark"></span>
               </label>
               <label class="checkbox-container d-block">2-3 - Toddlers
-                <input type="checkbox">
+                <input type="checkbox" class="checkbox2" value="2-3 - Toddlers">
                 <span class="checkmark"></span>
               </label>
               <label class="checkbox-container d-block"> 4-5 - Children
-                <input type="checkbox">
+                <input type="checkbox" class="checkbox2" value="4-5 - Children">
                 <span class="checkmark"></span>
               </label>
               <label class="checkbox-container d-block">5-12 - Children
-                <input type="checkbox">
+                <input type="checkbox" class="checkbox2" value="5-12 - Children">
                 <span class="checkmark"></span>
               </label>
               <label class="checkbox-container d-block"> Tween (10-12)
-                <input type="checkbox">
+                <input type="checkbox" class="checkbox2" value="Tween (10-12)">
                 <span class="checkmark"></span>
               </label>
               <label class="checkbox-container d-block"> 13-19 - Teens
-                <input type="checkbox">
+                <input type="checkbox" class="checkbox2" value="13-19 - Teens">
                 <span class="checkmark"></span>
               </label>
               <div class="buttons clearfix">
@@ -286,7 +294,9 @@
                 <h6>Where</h6>
                 <span class="fa-solid fa-caret-down"></span>
               </div>
-              <div class="search-field"></div>
+              <div class="search-field">
+                <p id="value_list4"></p>
+              </div>
             </div>
             <div class="search-item-content search-item-content4">
               <h3>Where would you like to attend this course?</h3>
@@ -298,13 +308,13 @@
                 <div class="proximity">
                   <label for="range">Proximity/Range</label>
                   <select id="range" name="proximity">
-                    <option value="5">5 km</option>
-                    <option value="10">10 km</option>
-                    <option value="15">15 km</option>
-                    <option value="30">30 km</option>
-                    <option value="50">50 km</option>
-                    <option value="100">100 km</option>
-                    <option value="500">500 km</option>
+                    <option value="5 km">5 km</option>
+                    <option value="10 km">10 km</option>
+                    <option value="15 km">15 km</option>
+                    <option value="30 km">30 km</option>
+                    <option value="50 km">50 km</option>
+                    <option value="100 km">100 km</option>
+                    <option value="500 km">500 km</option>
                   </select>
                 </div>
               </div>
@@ -312,22 +322,22 @@
                 <h3>Or</h3>
                 <label for="district">Select a District</label>
                 <select id="district" name="district">
-                  <option value="select">Please select</option>
-                  <option value="nsw">Northern NSW</option>
-                  <option value="coast">Mid North Coast</option>
-                  <option value="hunter">Hunter</option>
-                  <option value="england">New England</option>
-                  <option value="central coast">Central Coast</option>
-                  <option value="n-sydney">Northern Sydney</option>
-                  <option value="s-district">Sydney District</option>
-                  <option value="w-sydney">Western Sydney</option>
-                  <option value="n-b-mountains">Nepean Blue Mountains</option>
-                  <option value="s-w-sydney">South Western Sydney</option>
-                  <option value="s-e-sydney">South Eastern Sydney</option>
-                  <option value="s-nsw">Southern NSW</option>
-                  <option value="murrumbidgee">Murrumbidgee</option>
-                  <option value="w-nsw">Western NSW</option>
-                  <option value="far-west">Far West</option>
+                  <option value="">Please select</option>
+                  <option value="Northern NSW">Northern NSW</option>
+                  <option value="Mid North Coast">Mid North Coast</option>
+                  <option value="Hunter">Hunter</option>
+                  <option value="New England">New England</option>
+                  <option value="Central Coast">Central Coast</option>
+                  <option value="Northern Sydney">Northern Sydney</option>
+                  <option value="Sydney District">Sydney District</option>
+                  <option value="Western Sydney">Western Sydney</option>
+                  <option value="Nepean Blue Mountains">Nepean Blue Mountains</option>
+                  <option value="South Western Sydney">South Western Sydney</option>
+                  <option value="South Eastern Sydney">South Eastern Sydney</option>
+                  <option value="Southern NSW">Southern NSW</option>
+                  <option value="Murrumbidgee">Murrumbidgee</option>
+                  <option value="Western NSW">Western NSW</option>
+                  <option value="Far West">Far West</option>
                 </select>
               </div>
               <div class="buttons clearfix">
@@ -345,7 +355,9 @@
                 <h6>When</h6>
                 <span class="fa-solid fa-caret-down"></span>
               </div>
-              <div class="search-field"></div>
+              <div class="search-field">
+                <p id="value_list5"></p>
+              </div>
             </div>
             <div class="search-item-content search-item-content5">
               <h3>What date or timeframe did you have in mind?</h3>
@@ -420,60 +432,62 @@
                 <h6>Who is it for?</h6>
                 <span class="fa-solid fa-caret-down"></span>
               </div>
-              <div class="search-field"></div>
+              <div class="search-field">
+                <p id="value_list6"></p>
+              </div>
             </div>
             <div class="search-item-content search-item-content6">
               <h3>Who do you need the course directed towards?</h3>
               <label class="checkbox-container d-block"> Aboriginal & Torres Strait Islander Parents
-                <input type="checkbox">
+                <input type="checkbox" class="checkbox5" value="Aboriginal & Torres Strait Islander Parents">
                 <span class="checkmark"></span>
               </label>
               <label class="checkbox-container d-block">Parents whose children are Aboriginal & Torres Strait Islander
-                <input type="checkbox">
+                <input type="checkbox" class="checkbox5" value="Parents whose children are Aboriginal & Torres Strait Islander">
                 <span class="checkmark"></span>
               </label>
               <label class="checkbox-container d-block">Parents of children with additional needs
-                <input type="checkbox">
+                <input type="checkbox" class="checkbox5" value="Parents of children with additional needs">
                 <span class="checkmark"></span>
               </label>
               <label class="checkbox-container d-block">Parents who are separated or divorced
-                <input type="checkbox">
+                <input type="checkbox" class="checkbox5" value="Parents who are separated or divorced">
                 <span class="checkmark"></span>
               </label>
               <label class="checkbox-container d-block">Multicultural Families
-                <input type="checkbox">
+                <input type="checkbox" class="checkbox5" value="Multicultural Families">
                 <span class="checkmark"></span>
               </label>
               <label class="checkbox-container d-block">Kinship / Foster Carers
-                <input type="checkbox">
+                <input type="checkbox" class="checkbox5" value="Kinship / Foster Carers">
                 <span class="checkmark"></span>
               </label>
               <label class="checkbox-container d-block">LGBTI Parents
-                <input type="checkbox">
+                <input type="checkbox" class="checkbox5" value="LGBTI Parents">
                 <span class="checkmark"></span>
               </label>
               <label class="checkbox-container d-block">Grandparents
-                <input type="checkbox">
+                <input type="checkbox" class="checkbox5" value="Grandparents">
                 <span class="checkmark"></span>
               </label>
               <label class="checkbox-container d-block">Young Parents
-                <input type="checkbox">
+                <input type="checkbox" class="checkbox5" value="Young Parents">
                 <span class="checkmark"></span>
               </label>
               <label class="checkbox-container d-block">Young Fathers
-                <input type="checkbox">
+                <input type="checkbox" class="checkbox5" value="Young Fathers">
                 <span class="checkmark"></span>
               </label>
               <label class="checkbox-container d-block">Young Mothers
-                <input type="checkbox">
+                <input type="checkbox" class="checkbox5" value="Young Mothers">
                 <span class="checkmark"></span>
               </label>
               <label class="checkbox-container d-block">Mothers
-                <input type="checkbox">
+                <input type="checkbox" class="checkbox5" value="Mothers">
                 <span class="checkmark"></span>
               </label>
               <label class="checkbox-container d-block"> Fathers
-                <input type="checkbox">
+                <input type="checkbox" class="checkbox5" value="Fathers">
                 <span class="checkmark"></span>
               </label>
               <div class="buttons clearfix">
@@ -492,30 +506,30 @@
                 <span class="fa-solid fa-caret-down"></span>
               </div>
               <div class="search-field">
-                <p id="value_list"></p>
+                <p id="value_list7"></p>
               </div>
             </div>
             <div class="search-item-content search-item-content7">
               <h3>What language do you prefer the course in?</h3>
               <select id="country" name="country">
-                <option value="please select">Please select</option>
-                <option value="english">English</option>
-                <option value="arabic">Arabic</option>
-                <option value="bengali">Bengali</option>
-                <option value="chinese">Chinese Simplified</option>
-                <option value="chinese">Chinese Traditional</option>
-                <option value="maori">Cook Islands Maori</option>
-                <option value="fijian">Fijian</option>
-                <option value="hindi">Hindi</option>
-                <option value="japanese">Japanese</option>
-                <option value="korean">Korean</option>
-                <option value="niuean">Niuean</option>
-                <option value="samoan">Samoan</option>
-                <option value="spanish">Spanish</option>
-                <option value="tamil">Tamil</option>
-                <option value="turkish">Turkish</option>
-                <option value="urdu">Urdu</option>
-                <option value="vietnamese">Vietnamese</option>
+                <option value="">Please select</option>
+                <option value="English">English</option>
+                <option value="Arabic">Arabic</option>
+                <option value="Bengali">Bengali</option>
+                <option value="Chinese Simplified">Chinese Simplified</option>
+                <option value="Chinese Traditional">Chinese Traditional</option>
+                <option value="Cook Islands Maori">Cook Islands Maori</option>
+                <option value="Fijian">Fijian</option>
+                <option value="Hindi">Hindi</option>
+                <option value="Japanese">Japanese</option>
+                <option value="Korean">Korean</option>
+                <option value="Niuean">Niuean</option>
+                <option value="Samoan">Samoan</option>
+                <option value="Spanish">Spanish</option>
+                <option value="Tamil">Tamil</option>
+                <option value="Turkish">Turkish</option>
+                <option value="Urdu">Urdu</option>
+                <option value="Vietnamese">Vietnamese</option>
               </select>
               <div class="buttons clearfix">
                 <a class="reset-btn">
@@ -762,6 +776,7 @@
   
 
   <script src="index.js"></script>
+  <!-- <script src="practice.js"></script> -->
 
 </body>
 

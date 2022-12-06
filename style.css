@@ -614,6 +614,62 @@ input::-webkit-input-placeholder {
     padding-left: 8px;
 }
 
+#value_list1 {
+    height: inherit;
+    margin-bottom: 0;
+    color: #3f51b5;
+    line-height: 40px;
+    padding-left: 8px;
+}
+
+#value_list2 {
+    height: inherit;
+    margin-bottom: 0;
+    color: #3f51b5;
+    line-height: 40px;
+    padding-left: 8px;
+}
+
+#value_list3 {
+    height: inherit;
+    margin-bottom: 0;
+    color: #3f51b5;
+    line-height: 40px;
+    padding-left: 8px;
+}
+
+#value_list4 {
+    height: inherit;
+    margin-bottom: 0;
+    color: #3f51b5;
+    line-height: 40px;
+    padding-left: 8px;
+}
+
+#value_list5 {
+    height: inherit;
+    margin-bottom: 0;
+    color: #3f51b5;
+    line-height: 40px;
+    padding-left: 8px;
+}
+
+#value_list6 {
+    height: inherit;
+    margin-bottom: 0;
+    color: #3f51b5;
+    line-height: 40px;
+    padding-left: 8px;
+}
+
+#value_list7 {
+    height: inherit;
+    margin-bottom: 0;
+    color: #3f51b5;
+    line-height: 40px;
+    padding-left: 8px;
+}
+
 .search-item-content {
     position: absolute;
     width: 460px;
@@ -798,7 +854,7 @@ select {
     background-color: #022c68;
 }
 
-.sub-checkbox {
+.sub-checkbox-container {
     margin-left: 30px;
 }
 
