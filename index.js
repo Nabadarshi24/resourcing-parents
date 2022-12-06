@@ -47,7 +47,6 @@ $('.search-btn .search-icon').click(function () {
 });
 
 $('.search-header').click(function () {
-
     var select = $(this).attr("name");
     $('.' + select).slideToggle().parent().siblings().children(".search-item-content").slideUp();
 });
@@ -59,6 +58,7 @@ $('.search-item-content1 .filter-more').click(function () {
 
 $('.search-item-content2 .filter-more').click(function () {
     var select1 = $(this).attr("name");
+
     $('.' + select1).parent().parent().slideUp().parent().siblings().find('.search-item-content3').slideDown();
 });
 
@@ -87,6 +87,7 @@ $('.search-item-content6 .filter-more').click(function () {
 var valueList1 = document.getElementById('value_list1');
 var listArray = [];
 var keywordSearch = "";
+var searchCourse = "";
 
 var checkboxes = document.querySelectorAll('.checkbox');
 
@@ -102,8 +103,14 @@ for (var checkbox of checkboxes) {
         }
 
         onChangeItem1()
+        // onChangeItem2()
     })
 }
+
+$('#course_name').on('focusout', e => {
+    searchCourse = e.target.value;
+    onChangeItem1()
+})
 
 $('#search_course').on("focusout", e => {
     // console.log(e.target.value)
@@ -117,6 +124,9 @@ function onChangeItem1() {
 
     if (checkboxText != "") {
         finalTextArray.push(checkboxText);
+    }
+    if (searchCourse != "") {
+        finalTextArray.push(searchCourse);
     }
     if (keywordSearch != "") {
         finalTextArray.push(keywordSearch);
