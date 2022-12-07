@@ -84,6 +84,8 @@ $('.search-item-content6 .filter-more').click(function () {
 
 // checkbox functions
 
+// functions for keyword and program finder
+
 var valueList1 = document.getElementById('value_list1');
 var listArray = [];
 var keywordSearch = "";
@@ -135,6 +137,285 @@ function onChangeItem1() {
     valueList1.innerHTML = finalTextArray.join(", ");
 }
 
+// ends here
+
+// functions for what's it about sections
+
+var valueList2 = document.getElementById('value_list2');
+var listArray1 = [];
+var subCheckboxes = document.querySelectorAll('#child-checkbox1 input[type=checkbox]');
+
+for (var subCheckbox of subCheckboxes) {
+    subCheckbox.addEventListener('click', function () {
+        if (this.checked == true) {
+            listArray1.push(this.value);
+            valueList2.innerHTML = listArray1.join(", ");
+        }
+        else {
+            listArray1 = listArray1.filter(e => e !== this.value);
+            valueList2.innerHTML = listArray1.join(", ");
+        }
+    })
+}
+
+
+$('#parent-checkbox1').click(function (e) {
+    e.preventDefault();
+    isB = $("#child-checkbox1").css('display') == 'block';
+    isChecked = $("#event-topic-1").is(':checked');
+
+    if (isB == false) {
+        $(this).siblings('#child-checkbox1').slideToggle();
+        // $("#event-topic-1").prop( "checked", true );
+    }
+
+    else if (isB == true && isChecked == false) {
+        $("#event-topic-1").prop("checked", true);
+        $(".sub-checkbox1").prop("checked", true);
+    }
+
+    else if (isB == true && isChecked == true) {
+        $("#event-topic-1").prop("checked", false)
+        $(".sub-checkbox1").prop("checked", false);
+        $(this).siblings('#child-checkbox1').slideUp();
+        listArray1 = [];
+        // valueList2.innerHTML = "";
+    }
+});
+
+function check1() {
+    let checkbox = document.getElementsByClassName('sub-checkbox1');
+    let ln = 0;
+    for (var i = 0; i < checkbox.length; i++) { //check for child checkboxes
+        if (checkbox[i].checked)
+            ln++;
+    }
+
+    //select parent if all child are checked
+    let all = document.getElementsByClassName('sub-checkbox1');
+    let num = all.length;
+
+    if (ln == num) {
+        document.getElementById("event-topic-1").checked = true;
+    }
+    else {
+        document.getElementById("event-topic-1").checked = false;
+    }
+}
+
+$('#parent-checkbox2').click(function (e) {
+    e.preventDefault();
+    isB = $("#child-checkbox2").css('display') == 'block';
+    isChecked = $("#event-topic-2").is(':checked');
+
+    if (isB == false) {
+        $(this).siblings('#child-checkbox2').slideToggle();
+        // $("#event-topic-1").prop( "checked", true );
+    }
+
+    else if (isB == true && isChecked == false) {
+        $("#event-topic-2").prop("checked", true);
+        $(".sub-checkbox2").prop("checked", true);
+    }
+
+    else if (isB == true && isChecked == true) {
+        $("#event-topic-2").prop("checked", false)
+        $(".sub-checkbox2").prop("checked", false);
+        $(this).siblings('#child-checkbox2').slideUp();
+    }
+});
+
+function check2() {
+    let checkbox = document.getElementsByClassName('sub-checkbox2');
+    let ln = 0;
+    for (let i = 0; i < checkbox.length; i++) { //check for child checkboxes
+        if (checkbox[i].checked)
+            ln++;
+    }
+
+    //select parent if all child are checked
+    let all = document.getElementsByClassName('sub-checkbox2');
+    let num = all.length;
+
+    if (ln == num) {
+        document.getElementById("event-topic-2").checked = true;
+    }
+    else {
+        document.getElementById("event-topic-2").checked = false;
+    }
+}
+
+
+$('#parent-checkbox3').click(function (e) {
+    e.preventDefault();
+    isB = $("#child-checkbox3").css('display') == 'block';
+    isChecked = $("#event-topic-3").is(':checked');
+
+    if (isB == false) {
+        $(this).siblings('#child-checkbox3').slideToggle();
+        // $("#event-topic-1").prop( "checked", true );
+    }
+
+    else if (isB == true && isChecked == false) {
+        $("#event-topic-3").prop("checked", true);
+        $(".sub-checkbox3").prop("checked", true);
+    }
+
+    else if (isB == true && isChecked == true) {
+        $("#event-topic-3").prop("checked", false)
+        $(".sub-checkbox3").prop("checked", false);
+        $(this).siblings('#child-checkbox3').slideUp();
+    }
+});
+
+function checkbox3() {
+    let checkbox = document.getElementsByClassName('sub-checkbox3');
+    let ln = 0;
+    for (let i = 0; i < checkbox.length; i++) { //check for child checkboxes
+        if (checkbox[i].checked)
+            ln++;
+    }
+
+    //select parent if all child are checked
+    let all = document.getElementsByClassName('sub-checkbox3');
+    let num = all.length;
+
+    if (ln == num) {
+        document.getElementById("event-topic-3").checked = true;
+    }
+    else {
+        document.getElementById("event-topic-3").checked = false;
+    }
+}
+
+$('#parent-checkbox4').click(function (e) {
+    e.preventDefault();
+    isB = $("#child-checkbox4").css('display') == 'block';
+    isChecked = $("#event-topic-4").is(':checked');
+
+    if (isB == false) {
+        $(this).siblings('#child-checkbox4').slideToggle();
+        // $("#event-topic-4").prop( "checked", true );
+    }
+
+    else if (isB == true && isChecked == false) {
+        $("#event-topic-4").prop("checked", true);
+        $(".sub-checkbox4").prop("checked", true);
+    }
+
+    else if (isB == true && isChecked == true) {
+        $("#event-topic-4").prop("checked", false)
+        $(".sub-checkbox4").prop("checked", false);
+        $(this).siblings('#child-checkbox4').slideUp();
+    }
+});
+
+function checkbox4() {
+    let checkbox = document.getElementsByClassName('sub-checkbox4');
+    let ln = 0;
+    for (let i = 0; i < checkbox.length; i++) { //check for child checkboxes
+        if (checkbox[i].checked)
+            ln++;
+    }
+
+    //select parent if all child are checked
+    let all = document.getElementsByClassName('sub-checkbox4');
+    let num = all.length;
+
+    if (ln == num) {
+        document.getElementById("event-topic-4").checked = true;
+    }
+    else {
+        document.getElementById("event-topic-4").checked = false;
+    }
+}
+
+$('#parent-checkbox5').click(function (e) {
+    e.preventDefault();
+    isB = $("#child-checkbox5").css('display') == 'block';
+    isChecked = $("#event-topic-5").is(':checked');
+
+    if (isB == false) {
+        $(this).siblings('#child-checkbox5').slideToggle();
+        // $("#event-topic-5").prop( "checked", true );
+    }
+
+    else if (isB == true && isChecked == false) {
+        $("#event-topic-5").prop("checked", true);
+        $(".sub-checkbox5").prop("checked", true);
+    }
+
+    else if (isB == true && isChecked == true) {
+        $("#event-topic-5").prop("checked", false)
+        $(".sub-checkbox5").prop("checked", false);
+        $(this).siblings('#child-checkbox5').slideUp();
+    }
+});
+
+function checkbox5() {
+    let checkbox = document.getElementsByClassName('sub-checkbox5');
+    let ln = 0;
+    for (let i = 0; i < checkbox.length; i++) { //check for child checkboxes
+        if (checkbox[i].checked)
+            ln++;
+    }
+
+    //select parent if all child are checked
+    let all = document.getElementsByClassName('sub-checkbox5');
+    let num = all.length;
+
+    if (ln == num) {
+        document.getElementById("event-topic-5").checked = true;
+    }
+    else {
+        document.getElementById("event-topic-5").checked = false;
+    }
+}
+
+$('#parent-checkbox6').click(function (e) {
+    e.preventDefault();
+    isB = $("#child-checkbox6").css('display') == 'block';
+    isChecked = $("#event-topic-6").is(':checked');
+
+    if (isB == false) {
+        $(this).siblings('#child-checkbox6').slideToggle();
+        // $("#event-topic-6").prop( "checked", true );
+    }
+
+    else if (isB == true && isChecked == false) {
+        $("#event-topic-6").prop("checked", true);
+        $(".sub-checkbox6").prop("checked", true);
+    }
+
+    else if (isB == true && isChecked == true) {
+        $("#event-topic-6").prop("checked", false)
+        $(".sub-checkbox6").prop("checked", false);
+        $(this).siblings('#child-checkbox6').slideUp();
+    }
+});
+
+function checkbox6() {
+    let checkbox = document.getElementsByClassName('sub-checkbox6');
+    let ln = 0;
+    for (let i = 0; i < checkbox.length; i++) { //check for child checkboxes
+        if (checkbox[i].checked)
+            ln++;
+    }
+
+    //select parent if all child are checked
+    let all = document.getElementsByClassName('sub-checkbox6');
+    let num = all.length;
+
+    if (ln == num) {
+        document.getElementById("event-topic-6").checked = true;
+    }
+    else {
+        document.getElementById("event-topic-6").checked = false;
+    }
+}
+
+// ends-here
+
 // for child-age checkboxes
 
 var valueList3 = document.getElementById('value_list3');
@@ -160,6 +441,60 @@ $('.search-item-content3 .reset-btn').click(function () {
     valueList3.innerHTML = '';
     $('input[type=checkbox]').prop("checked", false);
 })
+
+// functions for where container
+
+var valueList4 = document.getElementById('value_list4');
+var listArray3 = [];
+var suburbCode = "";
+
+var selectBoxes = document.querySelectorAll('.select-field');
+
+console.log(selectBoxes)
+
+for (var selectBox of selectBoxes) {
+    console.log(selectBox)
+    selectBox.addEventListener('change', function (e) {
+        let value = e.target.value;
+        if (value !== "") {
+            listArray3.push(value);
+            // valueList4.innerHTML = listArray3.join(", ");
+        }
+        else {
+            listArray3 = listArray3.filter(e => e !== this.value);
+            // valueList1.innerHTML = listArray3.join(", ");
+        }
+
+        onChangeItem2()
+
+    })
+}
+
+
+$('#suburb').on("focusout", e => {
+    suburbCode = e.target.value;
+    onChangeItem2()
+})
+
+function onChangeItem2() {
+    let finalTextArray = [];
+    var selectBoxText = listArray3.join(", ");
+
+    if (suburbCode != "") {
+        finalTextArray.push(suburbCode);
+    }
+    if (selectBoxText != "") {
+        finalTextArray.push(selectBoxText);
+    }
+
+    valueList4.innerHTML = finalTextArray.join(", ");
+}
+
+$('.search-item-content4 .reset-btn').click(function () {
+    listArray3 = [];
+    valueList4.innerHTML = '';
+})
+
 
 // functions for who is it checkboxes
 
@@ -195,6 +530,12 @@ $('.search-item-content1 .reset-btn').click(function () {
     $('input[type=checkbox]').prop("checked", false);
 })
 
+$('.search-item-content2 .reset-btn').click(function () {
+    listArray1 = [];
+    valueList2.innerHTML = '';
+    $('input[type=checkbox]').prop("checked", false);
+})
+
 $('.search-item-content3 .reset-btn').click(function () {
     listArray2 = [];
     valueList3.innerHTML = '';
@@ -214,18 +555,6 @@ $('.search-btn .reset-icon').click(function () {
     $('#country').val("")
 });
 
-$('#district').change(function (e) {
-    valueList4 = $('#value_list4');
-    let value4 = e.target.value;
-    valueList4.text(value4);
-})
-
-$('#range').change(function (e) {
-    valueList4 = $('#value_list4');
-    let value5 = e.target.value;
-    valueList4.text(value5);
-})
-
 $('#country').change(function (e) {
     valueList7 = $('#value_list7');
     var value7 = e.target.value;
@@ -233,263 +562,4 @@ $('#country').change(function (e) {
 });
 
 // ends-here
-
-$('#parent-checkbox1').click(function (e) {
-    e.preventDefault();
-    isB = $("#child-checkbox1").css('display') == 'block';
-    isChecked = $("#event-topic-1").is(':checked');
-
-    if (isB == false) {
-        $(this).siblings('#child-checkbox1').slideToggle();
-        // $("#event-topic-1").prop( "checked", true );
-    }
-
-    else if (isB == true && isChecked == false) {
-        $("#event-topic-1").prop("checked", true);
-        $(".sub-checkbox1").prop("checked", true);
-    }
-
-    else if (isB == true && isChecked == true) {
-        $("#event-topic-1").prop("checked", false)
-        $(".sub-checkbox1").prop("checked", false);
-        $(this).siblings('#child-checkbox1').slideUp();
-    }
-});
-
-// const allSubCheckbox = $('.sub-checkbox1');
-let listA = [false, false, false, false];
-
-$('#additional-concerns').click(function () {
-
-    if($(this).is(":checked") ){
-        listA[0] = true;
-    }
-    else{
-        listA[0] = false;
-    }
-
-    let isAllvalueTrue = true;
-
-    for (let index = 0; index < listA.length; index++) {
-        if (listA[index] == false) {
-            isAllvalueTrue = false;
-            break;
-        }
-    }
-
-    if (isAllvalueTrue == true) {
-        $("#event-topic-1").prop( "checked", true );
-    }
-
-    else {
-        $("#event-topic-1").prop( "checked", false );
-
-    }
-})
-
-$('#behavior').click(function () {
-
-    if($(this).is(":checked") ){
-        listA[1] = true;
-    }
-    else{
-        listA[1] = false;
-    }
-
-    let isAllvalueTrue = true;
-
-    for (let index = 0; index < listA.length; index++) {
-        if (listA[index] === false) {
-            isAllvalueTrue = false;
-            break;
-        }
-    }
-
-    if (isAllvalueTrue == true) {
-        ($("#event-topic-1").prop( "checked", true ));
-    }
-    else {
-        ($("#event-topic-1").prop( "checked", false ));
-    }
-})
-
-$('#emotional_social').click(function () {
-
-    if($(this).is(":checked") ){
-        listA[2] = true;
-    }
-    else{
-        listA[2] = false;
-    }
-
-    let isAllvalueTrue = true;
-
-    for (let index = 0; index < listA.length; index++) {
-        if (listA[index] === false) {
-            isAllvalueTrue = false;
-            break;
-        }
-    }
-
-    if (isAllvalueTrue == true) {
-        ($("#event-topic-1").prop( "checked", true ));
-    }
-    else {
-        ($("#event-topic-1").prop( "checked", false ));
-    }
-})
-
-$('#health').click(function () {
-
-    if($(this).is(":checked") ){
-        listA[3] = true;
-    }
-    else{
-        listA[3] = false;
-    }
-
-    let isAllvalueTrue = true;
-
-    for (let index = 0; index < listA.length; index++) {
-        if (listA[index] === false) {
-            isAllvalueTrue = false;
-            break;
-        }
-    }
-
-    if (isAllvalueTrue == true) {
-        ($("#event-topic-1").prop( "checked", true ));
-    }
-
-    else {
-        ($("#event-topic-1").prop( "checked", false ));
-    }
-})
-console.log(listA);
-
-
-// allSubCheckbox.each(function (index) {
-//     let subCheckbox = allSubCheckbox[index];
-//     $(subCheckbox).on('change', function () {
-//         listA.push($(this).is(':checked'));
-//         if(listA.includes(false)) {
-//             $("#event-topic-1").prop( "checked", false );
-//         }
-//         else {
-//             $("#event-topic-1").prop( "checked", true );
-//         }
-//     }) 
-// })
-
-$('#parent-checkbox2').click(function (e) {
-    e.preventDefault();
-    isB = $("#child-checkbox2").css('display') == 'block';
-    isChecked = $("#event-topic-2").is(':checked');
-
-    if (isB == false) {
-        $(this).siblings('#child-checkbox2').slideToggle();
-        // $("#event-topic-1").prop( "checked", true );
-    }
-
-    else if (isB == true && isChecked == false) {
-        $("#event-topic-2").prop("checked", true);
-        $(".sub-checkbox2").prop("checked", true);
-    }
-
-    else if (isB == true && isChecked == true) {
-        $("#event-topic-2").prop("checked", false)
-        $(".sub-checkbox2").prop("checked", false);
-        $(this).siblings('#child-checkbox2').slideUp();
-    }
-});
-
-$('#parent-checkbox3').click(function (e) {
-    e.preventDefault();
-    isB = $("#child-checkbox3").css('display') == 'block';
-    isChecked = $("#event-topic-3").is(':checked');
-
-    if (isB == false) {
-        $(this).siblings('#child-checkbox3').slideToggle();
-        // $("#event-topic-1").prop( "checked", true );
-    }
-
-    else if (isB == true && isChecked == false) {
-        $("#event-topic-3").prop("checked", true);
-        $(".sub-checkbox3").prop("checked", true);
-    }
-
-    else if (isB == true && isChecked == true) {
-        $("#event-topic-3").prop("checked", false)
-        $(".sub-checkbox3").prop("checked", false);
-        $(this).siblings('#child-checkbox3').slideUp();
-    }
-});
-
-$('#parent-checkbox4').click(function (e) {
-    e.preventDefault();
-    isB = $("#child-checkbox4").css('display') == 'block';
-    isChecked = $("#event-topic-4").is(':checked');
-
-    if (isB == false) {
-        $(this).siblings('#child-checkbox4').slideToggle();
-        // $("#event-topic-4").prop( "checked", true );
-    }
-
-    else if (isB == true && isChecked == false) {
-        $("#event-topic-4").prop("checked", true);
-        $(".sub-checkbox4").prop("checked", true);
-    }
-
-    else if (isB == true && isChecked == true) {
-        $("#event-topic-4").prop("checked", false)
-        $(".sub-checkbox4").prop("checked", false);
-        $(this).siblings('#child-checkbox4').slideUp();
-    }
-});
-
-$('#parent-checkbox5').click(function (e) {
-    e.preventDefault();
-    isB = $("#child-checkbox5").css('display') == 'block';
-    isChecked = $("#event-topic-5").is(':checked');
-
-    if (isB == false) {
-        $(this).siblings('#child-checkbox5').slideToggle();
-        // $("#event-topic-5").prop( "checked", true );
-    }
-
-    else if (isB == true && isChecked == false) {
-        $("#event-topic-5").prop("checked", true);
-        $(".sub-checkbox5").prop("checked", true);
-    }
-
-    else if (isB == true && isChecked == true) {
-        $("#event-topic-5").prop("checked", false)
-        $(".sub-checkbox5").prop("checked", false);
-        $(this).siblings('#child-checkbox5').slideUp();
-    }
-});
-
-$('#parent-checkbox6').click(function (e) {
-    e.preventDefault();
-    isB = $("#child-checkbox6").css('display') == 'block';
-    isChecked = $("#event-topic-6").is(':checked');
-
-    if (isB == false) {
-        $(this).siblings('#child-checkbox6').slideToggle();
-        // $("#event-topic-6").prop( "checked", true );
-    }
-
-    else if (isB == true && isChecked == false) {
-        $("#event-topic-6").prop("checked", true);
-        $(".sub-checkbox6").prop("checked", true);
-    }
-
-    else if (isB == true && isChecked == true) {
-        $("#event-topic-6").prop("checked", false)
-        $(".sub-checkbox6").prop("checked", false);
-        $(this).siblings('#child-checkbox6').slideUp();
-    }
-});
-
-
 
