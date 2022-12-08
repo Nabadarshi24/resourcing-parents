@@ -37,6 +37,7 @@ input:focus {
     background: url(images/home_body_bkg.jpg) no-repeat center 0px;
     min-height: 100vh;
     background-size: cover;
+    background-attachment: fixed;
 }
 
 /* navbar design starts here */

@@ -137,6 +137,9 @@ function onChangeItem1() {
     valueList1.innerHTML = finalTextArray.join(", ");
 }
 
+var searchFields = $('.search-field p')
+
+
 // ends here
 
 // functions for what's it about sections
@@ -450,10 +453,9 @@ var suburbCode = "";
 
 var selectBoxes = document.querySelectorAll('.select-field');
 
-console.log(selectBoxes)
 
 for (var selectBox of selectBoxes) {
-    console.log(selectBox)
+    // console.log(selectBox)
     selectBox.addEventListener('change', function (e) {
         let value = e.target.value;
         if (value !== "") {
@@ -563,3 +565,124 @@ $('#country').change(function (e) {
 
 // ends-here
 
+// submit-btn functions starts here
+
+$(".main-search-submit-btn").click(function (e) {
+
+    console.log("main-search-submit-btn");
+    e.preventDefault();
+    let searchItemContent1 = {
+        onoToOne: $('#one_to_one').is(':checked'),
+        groupsSeminars: $('#groups_seminars').is(':checked'),
+        online: $('#online').is(':checked'),
+        courseName: $('#course_name').val(),
+        keyword: $('#search_course').val()
+    }
+
+    let searchItemContent2 = {
+        parentCheckbox1: {
+            childrenD: $('#event-topic-1').is(':checked'),
+            additionalC: $('#additional-concerns').is(':checked'),
+            behavior: $('#behavior').is(':checked'),
+            emotionalS: $('#emotional_social').is(':checked'),
+            health: $('#health').is(':checked')
+        },
+
+        parentCheckbox2: {
+            earlyLePlay: $('#event-topic-2').is(':checked'),
+            playgroup: $('#playgroup').is(':checked'),
+            playLearn: $('#play_learn').is(':checked'),
+            transitionSchool: $('#transition_school').is(':checked'),
+            reading: $('#reading').is(':checked')
+        },
+
+        parentCheckbox3: {
+            familyR: $('#event-topic-3').is(':checked'),
+            attachment: $('#attachment').is(':checked'),
+            relationshipB: $('#relationship').is(':checked')
+        },
+
+        parentCheckbox4: {
+            familyC: $('#event-topic-4').is(':checked'),
+            separation: $('separation').is(':checked'),
+            mulChallenge: $('challenges').is(':checked'),
+            childrenCare: $('#children_care').is(':checked'),
+            parentsCare: $('#parents_care').is(':checked')
+        },
+
+        parentCheckbox5: {
+            supportGroup: $('#event-topic-5').is(':checked'),
+            subSupportGroup: $('#support_groups').is(':checked')
+        },
+
+        parentCheckbox6: {
+            community: $('#event-topic-6').is(':checked'),
+            communityEvent: $('#community_event').is(':checked'),
+            communityNotice: $('#community_notice').is(':checked')
+        }
+    }
+
+    let searchItemContent3 = {
+        infants: $('#infants').is(':checked'),
+        toddlers: $('#toddlers').is(':checked'),
+        children1: $('#children1').is(':checked'),
+        children2: $('#children2').is(':checked'),
+        tween: $('#tween').is(':checked')
+    }
+
+    let searchItemContent4 = {
+        postcode: $('#suburb').val(),
+        proximity: $('#range').val(),
+        districtSelect: $('#district').val()
+    }
+
+    let searchItemContent5 = {
+        fromDate: $('#from_date').val(),
+        toDate: $('#to_date').val(),
+        sun: $('#sun').val(),
+        mon: $('#mon').val(),
+        tue: $('#tue').val(),
+        wed: $('#wed').val(),
+        thu: $('#thu').val(),
+        fri: $('#fri').val(),
+        sat: $('#sat').val(),
+        preferTime1: $('#morning').val(),
+        preferTime2: $('#afternoon').val(),
+        preferTime3: $('#evening').val()
+    }
+
+    let searchItemContent6 = {
+        aboriginal: $('#aboriginal').is(':checked'),
+        parentAboriginal: $('#aboriginal_parents').is(':checked'),
+        additionalNeed: $('#additional_need').is(':checked'),
+        divorcedParent: $('#parent_divorce').is(':checked'),
+        mulFamilies: $('#multiculture').is(':checked'),
+        kinship: $('#kinship').is(':checked'),
+        LGBTIParent: $('#LGBIT_parent').is(':checked'),
+        grandparent: $('#grandparent').is(':checked'),
+        youngParents: $('#young_parent').is(':checked'),
+        youngFathers: $('#young_father').is(':checked'),
+        youngMothers: $('#young_mother').is(':checked'),
+        mothers: $('#mother').is(':checked'),
+        father: $('#father').is(':checked'),
+    }
+
+    let searchItemContent7 = {
+        languages: $('#country').val()
+    }
+
+    let result = {
+        result1: searchItemContent1,
+        result2: searchItemContent2,
+        result3: searchItemContent3,
+        result4: searchItemContent4,
+        result5: searchItemContent5,
+        result6: searchItemContent6,
+        result7: searchItemContent7
+    }
+
+    console.log(result);
+
+})
+
+// ends-here
