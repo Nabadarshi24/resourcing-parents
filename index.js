@@ -44,6 +44,8 @@ $('.search-btn .search-icon').click(function () {
     $('.sidebar').toggleClass('show');
     $('.main-search-container').slideToggle();
     $('.right-sidebar').toggleClass('show');
+
+    onSearchFieldChange();
 });
 
 $('.search-header').click(function () {
@@ -137,10 +139,45 @@ function onChangeItem1() {
     valueList1.innerHTML = finalTextArray.join(", ");
 }
 
-var searchFields = $('.search-field p')
-
+$('.search-item-content1 .reset-btn').click(function () {
+    listArray = [];
+    valueList1.innerHTML = '';
+    $('input[type=checkbox]').prop("checked", false);
+})
 
 // ends here
+
+// show-courses and submitibtn bg-color 
+
+var searchFields = $('.search-field');
+
+const onSearchFieldChange = function (params) {
+    console.log("ccccccc")
+    for (var searchField of searchFields) {
+        $(searchField).on('change', function () {
+            let value = $('.search-field').text();
+            if (value !== "") {
+                document.querySelector('.main-search-submit-btn').style.backgroundColor = "lightgreen";
+            }
+
+            console.log(value)
+        })
+    }
+}
+
+onSearchFieldChange();
+
+// for (var searchField of searchFields) {
+//     searchField.addEventListener('onchange', function () {
+//         let value = $('.search-field').text();
+//         if (value !== "") {
+//             document.querySelector('.main-search-submit-btn').style.backgroundColor = "lightgreen";
+//         }
+//         console.log(value)
+//     })
+// }
+
+// ends-here
 
 // functions for what's it about sections
 
@@ -453,7 +490,6 @@ var suburbCode = "";
 
 var selectBoxes = document.querySelectorAll('.select-field');
 
-
 for (var selectBox of selectBoxes) {
     // console.log(selectBox)
     selectBox.addEventListener('change', function (e) {
@@ -461,10 +497,6 @@ for (var selectBox of selectBoxes) {
         if (value !== "") {
             listArray3.push(value);
             // valueList4.innerHTML = listArray3.join(", ");
-        }
-        else {
-            listArray3 = listArray3.filter(e => e !== this.value);
-            // valueList1.innerHTML = listArray3.join(", ");
         }
 
         onChangeItem2()
@@ -495,8 +527,74 @@ function onChangeItem2() {
 $('.search-item-content4 .reset-btn').click(function () {
     listArray3 = [];
     valueList4.innerHTML = '';
+});
+
+// ends-here
+
+// functions for when container
+
+var valueList5 = document.getElementById('value_list5');
+var listArray4 = [];
+
+var whenCheckboxes = document.querySelectorAll('.when-checkbox');
+var selectFields = document.querySelectorAll('.date-field');
+
+for (var selectField of selectFields) {
+    // console.log(selectField)
+    selectField.addEventListener('change', function (e) {
+        let value = e.target.value;
+        if (value !== "") {
+            listArray4.push(value);
+            // valueList4.innerHTML = listArray3.join(", ");
+            console.log(listArray4)
+        }
+        else {
+            listArray3 = listArray3.filter(e => e !== this.value);
+            // valueList1.innerHTML = listArray3.join(", ");
+        }
+
+        onChangeItem3()
+
+    })
+}
+
+for (var whenCheckbox of whenCheckboxes) {
+    whenCheckbox.addEventListener('click', function (e) {
+        if (this.checked == true) {
+            listArray4.push(this.value);
+
+            console.log(listArray4)
+        }
+        else {
+            listArray4 = listArray4.filter(e => e !== this.value);
+            // valueList1.innerHTML = listArray3.join(", ");
+        }
+        onChangeItem3()
+    })
+
+}
+
+function onChangeItem3() {
+    let finalTextArray = [];
+    let selectBoxText = listArray4.join(", ");
+
+    // if (suburbCode != "") {
+    //     finalTextArray.push(suburbCode);
+    // }
+    if (selectBoxText != "") {
+        finalTextArray.push(selectBoxText);
+    }
+
+    valueList5.innerHTML = finalTextArray.join(", ");
+}
+
+$('.search-item-content5 .reset-btn').click(function () {
+    listArray4 = [];
+    valueList5.innerHTML = '';
+    $('input[type=checkbox]').prop("checked", false);
 })
 
+// ends-here
 
 // functions for who is it checkboxes
 
@@ -524,13 +622,26 @@ $('.search-item-content6 .reset-btn').click(function () {
     $('input[type=checkbox]').prop("checked", false);
 })
 
+// ends-here
+
+// functions for language field
+
+$('#country').change(function (e) {
+    valueList7 = $('#value_list7');
+    var value7 = e.target.value;
+    valueList7.text(value7);
+});
+
+$('.search-item-content7 .reset-btn').click(function (e) {
+    valueList7 = $('#value_list7');
+    value7 = e.target.value;
+    valueList7.text("");
+})
+
+// ends-here
+
 //   reset btn function starts here
 
-$('.search-item-content1 .reset-btn').click(function () {
-    listArray = [];
-    valueList1.innerHTML = '';
-    $('input[type=checkbox]').prop("checked", false);
-})
 
 $('.search-item-content2 .reset-btn').click(function () {
     listArray1 = [];
@@ -538,11 +649,11 @@ $('.search-item-content2 .reset-btn').click(function () {
     $('input[type=checkbox]').prop("checked", false);
 })
 
-$('.search-item-content3 .reset-btn').click(function () {
-    listArray2 = [];
-    valueList3.innerHTML = '';
-    $('input[type=checkbox]').prop("checked", false);
-})
+// $('.search-item-content3 .reset-btn').click(function () {
+//     listArray2 = [];
+//     valueList3.innerHTML = '';
+//     $('input[type=checkbox]').prop("checked", false);
+// })
 
 $('.search-btn .reset-icon').click(function () {
     listArray = [];
@@ -551,17 +662,12 @@ $('.search-btn .reset-icon').click(function () {
     listArray3 = [];
     listArray4 = [];
     listArray5 = [];
-    listArray6 = [];
+    // listArray6 = [];
     $('.search-field p').text('');
     $('input[type=checkbox]').prop("checked", false);
     $('#country').val("")
 });
 
-$('#country').change(function (e) {
-    valueList7 = $('#value_list7');
-    var value7 = e.target.value;
-    valueList7.text(value7);
-});
 
 // ends-here
 
