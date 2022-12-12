@@ -36,16 +36,60 @@ $('.side-menu ul li .main-li span').click(function () {
 
     // recheck later for if-else
 });
+
+// function doOnBodyResize() {
+
+//     var sideMenuHeight = $("body").height() - 171;
+//     $('.side-menu').css({
+//         "height": sideMenuHeight + "px"
+//     })
+// }
+
+$(function () {
+    // doOnBodyResize1(171)
+});
 // ends-here
 
 // main-search functions starts here
 
+function doOnBodyResize1(num) {
+
+    let sideMenuHeight = $("body").height() - num;
+    console.log({ sideMenuHeight });
+    $('.side-menu').css({
+        "height": sideMenuHeight + "px"
+    })
+}
+
 $('.search-btn .search-icon').click(function () {
+    const wasShowing = $('.sidebar').hasClass('show');
+    let currentHeight = $('.side-menu').outerHeight();
+    let bodyHeight = $('body').outerHeight();
+    console.log({ currentHeight, wasShowing });
+
+    if (wasShowing == true) {
+        currentHeight = currentHeight;
+    } else {
+        currentHeight = currentHeight - 43;
+    }
+    console.log({ nweHeight: currentHeight });
+
     $('.sidebar').toggleClass('show');
     $('.main-search-container').slideToggle();
     $('.right-sidebar').toggleClass('show');
+    $('.hamburger').toggleClass('show');
 
-    onSearchFieldChange();
+    // doOnBodyResize1(300);
+    // onSearchFieldChange();
+
+    // console.log({ isShowL: $('.sidebar').hasClass('show') });
+
+    // doOnBodyResize1(227+42);
+    // doOnBodyResize1(171);
+
+    $('.side-menu').css({
+        "height": currentHeight + "px"
+    })
 });
 
 $('.search-header').click(function () {
