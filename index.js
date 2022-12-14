@@ -2,7 +2,7 @@
 
 $(document).ready(function () {
     $(".search-by-suburb").click(function () {
-        $(".hidden-search-by-suburb").toggleClass("show");
+        $(".hidden-search-by-suburb").toggleClass("show").removeClass('hide');
     });
 
     $('.close-btn').click(function () {
@@ -68,9 +68,9 @@ $('.search-btn .search-icon').click(function () {
     console.log({ currentHeight, wasShowing });
 
     if (wasShowing == true) {
-        currentHeight = currentHeight;
+        currentHeight = bodyHeight - 227;
     } else {
-        currentHeight = currentHeight - 43;
+        currentHeight = bodyHeight - 171;
     }
     console.log({ nweHeight: currentHeight });
 
@@ -78,54 +78,51 @@ $('.search-btn .search-icon').click(function () {
     $('.main-search-container').slideToggle();
     $('.right-sidebar').toggleClass('show');
     $('.hamburger').toggleClass('show');
+    $('.side-menu').toggleClass('show-toggle');
 
-    // doOnBodyResize1(300);
-    // onSearchFieldChange();
-
-    // console.log({ isShowL: $('.sidebar').hasClass('show') });
-
-    // doOnBodyResize1(227+42);
-    // doOnBodyResize1(171);
-
-    $('.side-menu').css({
-        "height": currentHeight + "px"
-    })
+    // $('.side-menu').css({
+    //     "height": currentHeight + "px"
+    // })
 });
 
 $('.search-header').click(function () {
     var select = $(this).attr("name");
     $('.' + select).slideToggle().parent().siblings().children(".search-item-content").slideUp();
+    $(this).children('.search-title').toggleClass('bg-color').parent().parent().siblings().find('.search-title').removeClass('bg-color');
 });
+
+// $('.filter-more').click(function () {
+//     $(this).parent().parent().siblings().find('.search-title').removeClass('bg-color').parent().parent().siblings().find('.search-title').addClass('bg-color');
+// })
 
 $('.search-item-content1 .filter-more').click(function () {
     var select1 = $(this).attr("name");
-    $('.' + select1).parent().parent().slideUp().parent().siblings().find('.search-item-content2').slideDown();
+    $('.' + select1).parent().parent().slideUp().siblings().find('.search-title').removeClass('bg-color').parent().parent().siblings().find('.search-item-content2').slideDown().siblings().find('.search-title').addClass('bg-color');
 });
 
 $('.search-item-content2 .filter-more').click(function () {
     var select1 = $(this).attr("name");
-
-    $('.' + select1).parent().parent().slideUp().parent().siblings().find('.search-item-content3').slideDown();
+    $('.' + select1).parent().parent().slideUp().siblings().find('.search-title').removeClass('bg-color').parent().parent().siblings().find('.search-item-content3').slideDown().siblings().find('.search-title').addClass('bg-color');
 });
 
 $('.search-item-content3 .filter-more').click(function () {
     var select1 = $(this).attr("name");
-    $('.' + select1).parent().parent().slideUp().parent().siblings().find('.search-item-content4').slideDown();
+    $('.' + select1).parent().parent().slideUp().siblings().find('.search-title').removeClass('bg-color').parent().parent().siblings().find('.search-item-content4').slideDown().siblings().find('.search-title').addClass('bg-color');
 });
 
 $('.search-item-content4 .filter-more').click(function () {
     var select1 = $(this).attr("name");
-    $('.' + select1).parent().parent().slideUp().parent().siblings().find('.search-item-content5').slideDown();
+    $('.' + select1).parent().parent().slideUp().siblings().find('.search-title').removeClass('bg-color').parent().parent().siblings().find('.search-item-content5').slideDown().siblings().find('.search-title').addClass('bg-color');
 });
 
 $('.search-item-content5 .filter-more').click(function () {
     var select1 = $(this).attr("name");
-    $('.' + select1).parent().parent().slideUp().parent().siblings().find('.search-item-content6').slideDown();
+    $('.' + select1).parent().parent().slideUp().siblings().find('.search-title').removeClass('bg-color').parent().parent().siblings().find('.search-item-content6').slideDown().siblings().find('.search-title').addClass('bg-color');
 });
 
 $('.search-item-content6 .filter-more').click(function () {
     var select1 = $(this).attr("name");
-    $('.' + select1).parent().parent().slideUp().parent().siblings().find('.search-item-content7').slideDown();
+    $('.' + select1).parent().parent().slideUp().siblings().find('.search-title').removeClass('bg-color').parent().parent().siblings().find('.search-item-content7').slideDown().siblings().find('.search-title').addClass('bg-color');
 });
 
 // checkbox functions
@@ -191,20 +188,20 @@ $('.search-item-content1 .reset-btn').click(function () {
 
 // ends here
 
-// show-courses and submitibtn bg-color 
+// show-courses and submit-btn bg-color 
 
 var searchFields = $('.search-field');
 
-const onSearchFieldChange = function (params) {
+const onSearchFieldChange = function () {
     console.log("ccccccc")
     for (var searchField of searchFields) {
         $(searchField).on('change', function () {
-            let value = $('.search-field').text();
+            let value = $('.search-field').val();
             if (value !== "") {
-                document.querySelector('.main-search-submit-btn').style.backgroundColor = "lightgreen";
+                $('.main-search-submit-btn').css({
+                    backgroundColor:'green'
+                });
             }
-
-            console.log(value)
         })
     }
 }

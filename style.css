@@ -248,7 +248,12 @@ input::-webkit-input-placeholder {
     }
 
     .hidden-search-by-suburb.show {
+        margin-right: 0;
         height: 166px;
+    }
+
+    .hidden-search-by-suburb.hide {
+        margin-right: -184px;
     }
 
     .hidden-search-by-suburb input {
@@ -570,10 +575,10 @@ input::-webkit-input-placeholder {
 
 .search-header {
     cursor: pointer;
-    border-top: 2px solid #0845a3;
-    border-bottom: 2px solid #0845a3;
-    border-left: 1px solid #0845a3;
-    border-right: 1px solid #0845a3;
+    border-top: 2px solid  #1e3ad8;
+    border-bottom: 2px solid  #1e3ad8;
+    border-left: 1px solid  #1e3ad8;
+    border-right: 1px solid  #1e3ad8;
 }
 
 .child-language-container {
@@ -591,6 +596,10 @@ input::-webkit-input-placeholder {
     background-color: #0d51b9;
     color: white;
     height: 40px;
+}
+
+.search-title.bg-color {
+    background-color: #1e3ad8;
 }
 
 .search-title h6 {
@@ -675,7 +684,7 @@ input::-webkit-input-placeholder {
     position: absolute;
     width: 460px;
     display: none;
-    border: 2px solid #0845a3;
+    border: 2px solid #1e3ad8;
     background-color: #ffffff;
     margin-top: -2px;
     padding: 25px;
@@ -1014,8 +1023,8 @@ select {
     }
 
     .search-header{
-        border-top: 1px solid #0845a3;
-        border-bottom: 1px solid #0845a3;
+        border-top: 1px solid  #1e3ad8;
+        border-bottom: 1px solid  #1e3ad8;
     }
 
     .search-item-content {
@@ -1084,7 +1093,7 @@ select {
     cursor: pointer;
     transition: left 0.3s ease;
     text-align: center;
-    z-index: 2;
+    z-index: 3;
 }
 
 .hamburger span {
@@ -1109,7 +1118,7 @@ select {
     width: 340px;
     min-height: calc(100vh - 171px);
     background-color: #757575;
-    z-index: 1;
+    z-index: 2;
     transition: left 0.3s ease;
 }
 
@@ -1217,8 +1226,14 @@ select {
     }
 
     .side-menu {
+        position: fixed;
         top: 43px;
         z-index: 2;
+        transition: all 0.5s;
+    }
+
+    .side-menu.show-toggle {
+        top: 85px;
     }
 }
 
