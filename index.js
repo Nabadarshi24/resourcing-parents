@@ -37,31 +37,37 @@ $('.side-menu ul li .main-li span').click(function () {
     // recheck later for if-else
 });
 
-// function doOnBodyResize() {
+// function doOnBodyResize(num) {
 
-//     var sideMenuHeight = $("body").height() - 171;
+//     var sideMenuHeight = $("body").height() - num;
 //     $('.side-menu').css({
 //         "height": sideMenuHeight + "px"
 //     })
 // }
 
-$(function () {
-    // doOnBodyResize1(171)
-});
+// $(function () {
+//     doOnBodyResize(170)
+// });
+
 // ends-here
 
 // main-search functions starts here
 
-function doOnBodyResize1(num) {
+$('.search-btn .search-icons').click(function () {
 
-    let sideMenuHeight = $("body").height() - num;
-    console.log({ sideMenuHeight });
-    $('.side-menu').css({
-        "height": sideMenuHeight + "px"
-    })
-}
+    if ($(window).width() < 992) {
+        console.log('adjab');
+        if ($('.search-icon').hasClass('d-none') == true) {
+            $('.search-icon').removeClass('d-none');
+            $('.search-icon-close').addClass('d-none');
+        }
+        else {
+            $('.search-icon').addClass('d-none');
+            $('.search-icon-close').removeClass('d-none');
+        }
 
-$('.search-btn .search-icon').click(function () {
+    }
+
     const wasShowing = $('.sidebar').hasClass('show');
     let currentHeight = $('.side-menu').outerHeight();
     let bodyHeight = $('body').outerHeight();
@@ -148,19 +154,24 @@ for (var checkbox of checkboxes) {
         }
 
         onChangeItem1()
-        // onChangeItem2()
+        onSearchFieldChange();
+        onSearchFieldChange1();
     })
 }
 
 $('#course_name').on('focusout', e => {
     searchCourse = e.target.value;
     onChangeItem1()
+    onSearchFieldChange()
+    onSearchFieldChange1();
 })
 
 $('#search_course').on("focusout", e => {
     // console.log(e.target.value)
     keywordSearch = e.target.value;
     onChangeItem1()
+    onSearchFieldChange()
+    onSearchFieldChange1();
 })
 
 function onChangeItem1() {
@@ -182,63 +193,71 @@ function onChangeItem1() {
 
 $('.search-item-content1 .reset-btn').click(function () {
     listArray = [];
+    finalTextArray = [];
+    keywordSearch = "";
+    searchCourse = "";
     valueList1.innerHTML = '';
     $('input[type=checkbox]').prop("checked", false);
+    $('input[type=text]').val('');
+    onSearchFieldChange();
+    onSearchFieldChange1();
 })
 
 // ends here
 
-// show-courses and submit-btn bg-color 
+// change show-courses and submit-btn bg-color 
 
-var searchFields = $('.search-field');
+var searchFields = $('.search-field p');
 
 const onSearchFieldChange = function () {
-    console.log("ccccccc")
-    for (var searchField of searchFields) {
-        $(searchField).on('change', function () {
-            let value = $('.search-field').val();
-            if (value !== "") {
-                $('.main-search-submit-btn').css({
-                    backgroundColor:'green'
-                });
-            }
-        })
+
+    if ($('.search-field p').text() !== "") {
+        $('.main-search-submit-btn').css({
+            backgroundColor: '#78ac3a'
+        });
+
+    } else {
+        $('.main-search-submit-btn').css({
+            backgroundColor: '#0d51b9'
+        });
+
+    }
+
+    for (let searchField of searchFields) {
+        let value = $(searchField).text();
+
+        console.log({ value, this: $(this), sf: $(searchField) });
+        if (value !== "") {
+            $(searchField).parent().closest(".search-item-container").find(".show-courses").css({
+                backgroundColor: '#78ac3a'
+            })
+        }
+        else {
+            $(searchField).parent().closest(".search-item-container").find(".show-courses").css({
+                backgroundColor: '#8293b1'
+            })
+        }
     }
 }
 
-onSearchFieldChange();
+const onSearchFieldChange1 = function () {
+    for (var searchField of searchFields) {
+        let value = $(searchField).text();
+        if (value !== "") {
+            $(searchField).parent().addClass('show');
+        }
 
-// for (var searchField of searchFields) {
-//     searchField.addEventListener('onchange', function () {
-//         let value = $('.search-field').text();
-//         if (value !== "") {
-//             document.querySelector('.main-search-submit-btn').style.backgroundColor = "lightgreen";
-//         }
-//         console.log(value)
-//     })
-// }
+        else {
+            $(searchField).parent().removeClass('show');
+        }
+    }
+}
 
 // ends-here
 
+
+
 // functions for what's it about sections
-
-var valueList2 = document.getElementById('value_list2');
-var listArray1 = [];
-var subCheckboxes = document.querySelectorAll('#child-checkbox1 input[type=checkbox]');
-
-for (var subCheckbox of subCheckboxes) {
-    subCheckbox.addEventListener('click', function () {
-        if (this.checked == true) {
-            listArray1.push(this.value);
-            valueList2.innerHTML = listArray1.join(", ");
-        }
-        else {
-            listArray1 = listArray1.filter(e => e !== this.value);
-            valueList2.innerHTML = listArray1.join(", ");
-        }
-    })
-}
-
 
 $('#parent-checkbox1').click(function (e) {
     e.preventDefault();
@@ -284,6 +303,27 @@ function check1() {
     }
 }
 
+var valueList2 = document.getElementById('value_list2');
+var listArray1 = [];
+var subCheckboxes1 = document.querySelectorAll('#child-checkbox1 input[type=checkbox]');
+
+for (var subCheckbox1 of subCheckboxes1) {
+    subCheckbox1.addEventListener('click', function () {
+        if (this.checked == true) {
+            listArray1.push(this.value);
+            valueList2.innerHTML = listArray1.join(", ");
+        }
+        else {
+            listArray1 = listArray1.filter(e => e !== this.value);
+            valueList2.innerHTML = listArray1.join(", ");
+        }
+
+        onSearchFieldChange();
+        onSearchFieldChange1();
+    })
+}
+
+
 $('#parent-checkbox2').click(function (e) {
     e.preventDefault();
     isB = $("#child-checkbox2").css('display') == 'block';
@@ -326,6 +366,24 @@ function check2() {
     }
 }
 
+var subCheckboxes2 = document.querySelectorAll('#child-checkbox2 input[type=checkbox]');
+
+for (var subCheckbox2 of subCheckboxes2) {
+    subCheckbox2.addEventListener('click', function () {
+        if (this.checked == true) {
+            listArray1.push(this.value);
+            valueList2.innerHTML = listArray1.join(", ");
+        }
+        else {
+            listArray1 = listArray1.filter(e => e !== this.value);
+            valueList2.innerHTML = listArray1.join(", ");
+        }
+
+        onSearchFieldChange();
+        onSearchFieldChange1();
+    })
+}
+
 
 $('#parent-checkbox3').click(function (e) {
     e.preventDefault();
@@ -349,6 +407,7 @@ $('#parent-checkbox3').click(function (e) {
     }
 });
 
+
 function checkbox3() {
     let checkbox = document.getElementsByClassName('sub-checkbox3');
     let ln = 0;
@@ -367,6 +426,25 @@ function checkbox3() {
     else {
         document.getElementById("event-topic-3").checked = false;
     }
+}
+
+
+var subCheckboxes3 = document.querySelectorAll('#child-checkbox3 input[type=checkbox]');
+
+for (var subCheckbox3 of subCheckboxes3) {
+    subCheckbox3.addEventListener('click', function () {
+        if (this.checked == true) {
+            listArray1.push(this.value);
+            valueList2.innerHTML = listArray1.join(", ");
+        }
+        else {
+            listArray1 = listArray1.filter(e => e !== this.value);
+            valueList2.innerHTML = listArray1.join(", ");
+        }
+
+        onSearchFieldChange();
+        onSearchFieldChange1();
+    })
 }
 
 $('#parent-checkbox4').click(function (e) {
@@ -411,6 +489,25 @@ function checkbox4() {
     }
 }
 
+var subCheckboxes4 = document.querySelectorAll('#child-checkbox4 input[type=checkbox]');
+
+for (var subCheckbox4 of subCheckboxes4) {
+    subCheckbox4.addEventListener('click', function () {
+        if (this.checked == true) {
+            listArray1.push(this.value);
+            valueList2.innerHTML = listArray1.join(", ");
+        }
+        else {
+            listArray1 = listArray1.filter(e => e !== this.value);
+            valueList2.innerHTML = listArray1.join(", ");
+        }
+
+        onSearchFieldChange();
+        onSearchFieldChange1();
+    })
+}
+
+
 $('#parent-checkbox5').click(function (e) {
     e.preventDefault();
     isB = $("#child-checkbox5").css('display') == 'block';
@@ -433,6 +530,7 @@ $('#parent-checkbox5').click(function (e) {
     }
 });
 
+
 function checkbox5() {
     let checkbox = document.getElementsByClassName('sub-checkbox5');
     let ln = 0;
@@ -451,6 +549,24 @@ function checkbox5() {
     else {
         document.getElementById("event-topic-5").checked = false;
     }
+}
+
+var subCheckboxes5 = document.querySelectorAll('#child-checkbox5 input[type=checkbox]');
+
+for (var subCheckbox5 of subCheckboxes5) {
+    subCheckbox5.addEventListener('click', function () {
+        if (this.checked == true) {
+            listArray1.push(this.value);
+            valueList2.innerHTML = listArray1.join(", ");
+        }
+        else {
+            listArray1 = listArray1.filter(e => e !== this.value);
+            valueList2.innerHTML = listArray1.join(", ");
+        }
+
+        onSearchFieldChange();
+        onSearchFieldChange1();
+    })
 }
 
 $('#parent-checkbox6').click(function (e) {
@@ -495,6 +611,32 @@ function checkbox6() {
     }
 }
 
+var subCheckboxes6 = document.querySelectorAll('#child-checkbox6 input[type=checkbox]');
+
+for (var subCheckbox6 of subCheckboxes6) {
+    subCheckbox6.addEventListener('click', function () {
+        if (this.checked == true) {
+            listArray1.push(this.value);
+            valueList2.innerHTML = listArray1.join(", ");
+        }
+        else {
+            listArray1 = listArray1.filter(e => e !== this.value);
+            valueList2.innerHTML = listArray1.join(", ");
+        }
+
+        onSearchFieldChange();
+        onSearchFieldChange1();
+    })
+}
+
+$('.search-item-content2 .reset-btn').click(function () {
+    listArray1 = [];
+    valueList2.innerHTML = '';
+    $('input[type=checkbox]').prop("checked", false);
+    onSearchFieldChange();
+    onSearchFieldChange1();
+})
+
 // ends-here
 
 // for child-age checkboxes
@@ -514,6 +656,9 @@ for (var checkbox of checkboxes) {
             listArray2 = listArray2.filter(e => e !== this.value);
             valueList3.innerHTML = listArray2.join(", ");
         }
+
+        onSearchFieldChange();
+        onSearchFieldChange1();
     })
 }
 
@@ -521,6 +666,9 @@ $('.search-item-content3 .reset-btn').click(function () {
     listArray2 = [];
     valueList3.innerHTML = '';
     $('input[type=checkbox]').prop("checked", false);
+
+    onSearchFieldChange();
+    onSearchFieldChange1();
 })
 
 // functions for where container
@@ -541,6 +689,8 @@ for (var selectBox of selectBoxes) {
         }
 
         onChangeItem2()
+        onSearchFieldChange();
+        onSearchFieldChange1();
 
     })
 }
@@ -549,6 +699,8 @@ for (var selectBox of selectBoxes) {
 $('#suburb').on("focusout", e => {
     suburbCode = e.target.value;
     onChangeItem2()
+    onSearchFieldChange();
+    onSearchFieldChange1();
 })
 
 function onChangeItem2() {
@@ -568,6 +720,11 @@ function onChangeItem2() {
 $('.search-item-content4 .reset-btn').click(function () {
     listArray3 = [];
     valueList4.innerHTML = '';
+    $('input[type=text]').val('');
+    $('.select-field').val('');
+
+    onSearchFieldChange();
+    onSearchFieldChange1();
 });
 
 // ends-here
@@ -595,7 +752,8 @@ for (var selectField of selectFields) {
         }
 
         onChangeItem3()
-
+        onSearchFieldChange();
+        onSearchFieldChange1();
     })
 }
 
@@ -611,6 +769,8 @@ for (var whenCheckbox of whenCheckboxes) {
             // valueList1.innerHTML = listArray3.join(", ");
         }
         onChangeItem3()
+        onSearchFieldChange();
+        onSearchFieldChange1();
     })
 
 }
@@ -633,6 +793,10 @@ $('.search-item-content5 .reset-btn').click(function () {
     listArray4 = [];
     valueList5.innerHTML = '';
     $('input[type=checkbox]').prop("checked", false);
+    $('.date-field').val('');
+
+    onSearchFieldChange();
+    onSearchFieldChange1();
 })
 
 // ends-here
@@ -654,6 +818,9 @@ for (var checkbox of checkboxes) {
             listArray5 = listArray5.filter(e => e !== this.value);
             valueList6.innerHTML = listArray5.join(", ");
         }
+
+        onSearchFieldChange();
+        onSearchFieldChange1();
     })
 }
 
@@ -661,6 +828,9 @@ $('.search-item-content6 .reset-btn').click(function () {
     listArray5 = [];
     valueList6.innerHTML = '';
     $('input[type=checkbox]').prop("checked", false);
+
+    onSearchFieldChange();
+    onSearchFieldChange1();
 })
 
 // ends-here
@@ -671,30 +841,24 @@ $('#country').change(function (e) {
     valueList7 = $('#value_list7');
     var value7 = e.target.value;
     valueList7.text(value7);
+
+    onSearchFieldChange();
+    onSearchFieldChange1();
 });
 
 $('.search-item-content7 .reset-btn').click(function (e) {
     valueList7 = $('#value_list7');
     value7 = e.target.value;
     valueList7.text("");
+    $('#country').val('');
+
+    onSearchFieldChange();
+    onSearchFieldChange1();
 })
 
 // ends-here
 
-//   reset btn function starts here
-
-
-$('.search-item-content2 .reset-btn').click(function () {
-    listArray1 = [];
-    valueList2.innerHTML = '';
-    $('input[type=checkbox]').prop("checked", false);
-})
-
-// $('.search-item-content3 .reset-btn').click(function () {
-//     listArray2 = [];
-//     valueList3.innerHTML = '';
-//     $('input[type=checkbox]').prop("checked", false);
-// })
+// main reset-btn function starts here
 
 $('.search-btn .reset-icon').click(function () {
     listArray = [];
@@ -703,12 +867,20 @@ $('.search-btn .reset-icon').click(function () {
     listArray3 = [];
     listArray4 = [];
     listArray5 = [];
+    keywordSearch = "";
+    searchCourse = "";
+    finalTextArray = [];
     // listArray6 = [];
     $('.search-field p').text('');
     $('input[type=checkbox]').prop("checked", false);
-    $('#country').val("")
-});
+    $('#country').val("");
+    $('input[type=text]').val("");
+    $('input[type=date]').val("");
+    $('select').val("");
 
+    onSearchFieldChange();
+    onSearchFieldChange1();
+});
 
 // ends-here
 

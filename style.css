@@ -799,6 +799,8 @@ input::-webkit-input-placeholder {
 
 .search-item-content2 {
     margin-left: -1px;
+    max-height: 620px;
+    overflow-y: auto;
 }
 
 .search-item-content3{
@@ -872,10 +874,6 @@ select {
 
 .show-courses {
     background-color: #8293b1;
-}
-
-.search-item-content6 .show-courses {
-    background-color: #78AC3A;
 }
 
 .filter-more {
@@ -978,6 +976,11 @@ select {
         z-index: 2;
 
     }
+
+    .main-search-container {
+        max-height: 100vh;
+        overflow-y: auto;
+    }
     .search-item-content2 {
         margin-left: 0;
     }
@@ -1039,6 +1042,10 @@ select {
 
     .search-field {
         height: 0;
+    }
+
+    .search-field.show {
+        height: 40px;
     }
 
     .main-search-submit-btn {
