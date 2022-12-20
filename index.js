@@ -226,7 +226,7 @@ const onSearchFieldChange = function () {
     for (let searchField of searchFields) {
         let value = $(searchField).text();
 
-        console.log({ value, this: $(this), sf: $(searchField) });
+        // console.log({ value, this: $(this), sf: $(searchField) });
         if (value !== "") {
             $(searchField).parent().closest(".search-item-container").find(".show-courses").css({
                 backgroundColor: '#78ac3a'
@@ -264,62 +264,115 @@ $('#parent-checkbox1').click(function (e) {
     isB = $("#child-checkbox1").css('display') == 'block';
     isChecked = $("#event-topic-1").is(':checked');
 
+
     if (isB == false) {
         $(this).siblings('#child-checkbox1').slideToggle();
         // $("#event-topic-1").prop( "checked", true );
     }
-
     else if (isB == true && isChecked == false) {
-        $("#event-topic-1").prop("checked", true);
+        // $("#event-topic-1").prop("checked", true);
         $(".sub-checkbox1").prop("checked", true);
     }
-
     else if (isB == true && isChecked == true) {
-        $("#event-topic-1").prop("checked", false)
+        // $("#event-topic-1").prop("checked", false)
         $(".sub-checkbox1").prop("checked", false);
         $(this).siblings('#child-checkbox1').slideUp();
-        listArray1 = [];
-        // valueList2.innerHTML = "";
     }
+
+    checkIsChildChecked(listArray1, subCheckboxes1, "#event-topic-1")
 });
 
-function check1() {
-    let checkbox = document.getElementsByClassName('sub-checkbox1');
-    let ln = 0;
-    for (var i = 0; i < checkbox.length; i++) { //check for child checkboxes
-        if (checkbox[i].checked)
-            ln++;
-    }
+// function check1() {
+//     return;
 
-    //select parent if all child are checked
-    let all = document.getElementsByClassName('sub-checkbox1');
-    let num = all.length;
+//     let checkbox = document.getElementsByClassName('sub-checkbox1');
+//     let ln = 0;
+//     for (var i = 0; i < checkbox.length; i++) { //check for child checkboxes
+//         if (checkbox[i].checked)
+//             ln++;
+//     }
 
-    if (ln == num) {
-        document.getElementById("event-topic-1").checked = true;
-    }
-    else {
-        document.getElementById("event-topic-1").checked = false;
-    }
-}
+//     // select parent if all child are checked
+
+//     let all = document.getElementsByClassName('sub-checkbox1');
+//     let num = all.length;
+
+//     if (ln == num) {
+//         document.getElementById("event-topic-1").checked = true;
+//     }
+//     else {
+//         document.getElementById("event-topic-1").checked = false;
+//     }
+// }
 
 var valueList2 = document.getElementById('value_list2');
 var listArray1 = [];
 var subCheckboxes1 = document.querySelectorAll('#child-checkbox1 input[type=checkbox]');
 
-for (var subCheckbox1 of subCheckboxes1) {
-    subCheckbox1.addEventListener('click', function () {
-        if (this.checked == true) {
-            listArray1.push(this.value);
-            valueList2.innerHTML = listArray1.join(", ");
-        }
-        else {
-            listArray1 = listArray1.filter(e => e !== this.value);
-            valueList2.innerHTML = listArray1.join(", ");
+
+const checkIsChildChecked = function (listArray, subCheckboxes, parentCheckbox) {
+    let subListArray = [];
+    let itemsToBeRemoved = [];
+    let parentText = "";
+
+    for (var subCheckbox of subCheckboxes) {
+        const text = $(subCheckbox).val();
+        itemsToBeRemoved.push(text)
+
+        if ($(subCheckbox).is(":checked") == true) {
+            subListArray.push(text);
         }
 
-        onSearchFieldChange();
-        onSearchFieldChange1();
+        console.log({ text, subCheckboxes, subListArray });
+        if (subListArray.length === subCheckboxes.length) {
+            $(parentCheckbox).prop("checked", true);
+            parentText = $(parentCheckbox).val()
+        } else if (subListArray.length !== subCheckboxes.length) {
+            $(parentCheckbox).prop("checked", false);
+            parentText = ""
+        }
+    }
+
+    function ccc(z) {
+        // return !itemsToBeRemoved.includes(z);
+
+        itemsToBeRemoved.forEach(function (params) {
+            if (params === z) {
+                return false;
+            }
+        })
+    }
+
+    listArray = listArray.filter(z => !itemsToBeRemoved.includes(z))
+
+    // listArray = listArray.filter(z => {
+    //     return !itemsToBeRemoved.includes(z)
+    // })
+
+    // listArray = listArray.filter(ccc)
+
+    // listArray = listArray.filter(function (z) {
+    //     return !itemsToBeRemoved.includes(z)
+    // })
+
+    if (parentText != "") {
+        listArray.push(parentText);
+    }
+
+    subListArray.forEach(x => {
+        listArray.push(x);
+    })
+
+    valueList2.innerHTML = listArray.join(", ")
+
+    onSearchFieldChange();
+    onSearchFieldChange1();
+}
+
+for (var subCheckbox1 of subCheckboxes1) {
+
+    subCheckbox1.addEventListener('click', function () {
+        checkIsChildChecked(listArray1, subCheckboxes1, "#event-topic-1")
     })
 }
 
@@ -335,52 +388,59 @@ $('#parent-checkbox2').click(function (e) {
     }
 
     else if (isB == true && isChecked == false) {
-        $("#event-topic-2").prop("checked", true);
+        // $("#event-topic-2").prop("checked", true);
         $(".sub-checkbox2").prop("checked", true);
     }
 
     else if (isB == true && isChecked == true) {
-        $("#event-topic-2").prop("checked", false)
+        // $("#event-topic-2").prop("checked", false)
         $(".sub-checkbox2").prop("checked", false);
         $(this).siblings('#child-checkbox2').slideUp();
     }
+
+    checkIsChildChecked(listArray1, subCheckboxes2, "#event-topic-2");
 });
 
-function check2() {
-    let checkbox = document.getElementsByClassName('sub-checkbox2');
-    let ln = 0;
-    for (let i = 0; i < checkbox.length; i++) { //check for child checkboxes
-        if (checkbox[i].checked)
-            ln++;
-    }
+// function check2() {
+//     let checkbox = document.getElementsByClassName('sub-checkbox2');
+//     let ln = 0;
+//     for (let i = 0; i < checkbox.length; i++) { //check for child checkboxes
+//         if (checkbox[i].checked)
+//             ln++;
+//     }
 
-    //select parent if all child are checked
-    let all = document.getElementsByClassName('sub-checkbox2');
-    let num = all.length;
+//     //select parent if all child are checked
+//     let all = document.getElementsByClassName('sub-checkbox2');
+//     let num = all.length;
 
-    if (ln == num) {
-        document.getElementById("event-topic-2").checked = true;
-    }
-    else {
-        document.getElementById("event-topic-2").checked = false;
-    }
-}
+//     if (ln == num) {
+//         document.getElementById("event-topic-2").checked = true;
+//     }
+//     else {
+//         document.getElementById("event-topic-2").checked = false;
+//     }
+// }
 
 var subCheckboxes2 = document.querySelectorAll('#child-checkbox2 input[type=checkbox]');
 
 for (var subCheckbox2 of subCheckboxes2) {
-    subCheckbox2.addEventListener('click', function () {
-        if (this.checked == true) {
-            listArray1.push(this.value);
-            valueList2.innerHTML = listArray1.join(", ");
-        }
-        else {
-            listArray1 = listArray1.filter(e => e !== this.value);
-            valueList2.innerHTML = listArray1.join(", ");
-        }
+    // subCheckbox2.addEventListener('click', function () {
+    //     if (this.checked == true) {
+    //         listArray1.push(this.value);
+    //         valueList2.innerHTML = listArray1.join(", ");
+    //     }
+    //     else {
+    //         listArray1 = listArray1.filter(e => e !== this.value);
+    //         valueList2.innerHTML = listArray1.join(", ");
+    //     }
 
-        onSearchFieldChange();
-        onSearchFieldChange1();
+    //     onSearchFieldChange();
+    //     onSearchFieldChange1();
+    // })
+
+    subCheckbox2.addEventListener('click', function () {
+
+        checkIsChildChecked(listArray1, subCheckboxes2, "#event-topic-2");
     })
 }
 
