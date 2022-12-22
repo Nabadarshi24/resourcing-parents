@@ -1037,7 +1037,7 @@ select {
 
     }
     .search-title h6 {
-        font-size: 14px;
+        font-size: 15px;
     }
 
     .search-field {
@@ -1046,6 +1046,7 @@ select {
 
     .search-field.show {
         height: 40px;
+        overflow: hidden;
     }
 
     .main-search-submit-btn {

@@ -309,51 +309,53 @@ var valueList2 = document.getElementById('value_list2');
 var listArray1 = [];
 var subCheckboxes1 = document.querySelectorAll('#child-checkbox1 input[type=checkbox]');
 
+for (var subCheckbox1 of subCheckboxes1) {
+
+    subCheckbox1.addEventListener('click', function () {
+        checkIsChildChecked(listArray1, subCheckboxes1, "#event-topic-1")
+    })
+}
 
 const checkIsChildChecked = function (listArray, subCheckboxes, parentCheckbox) {
     let subListArray = [];
-    let itemsToBeRemoved = [];
+    let itemsToBeRemoved = [$(parentCheckbox).val()];
     let parentText = "";
+
+    // for (var subCheckbox of subCheckboxes) {
+    //     const text = $(subCheckbox).val();
+    //     itemsToBeRemoved.push(text)
+    // }
+
+    // console.log({ listArray, listArray1 });
+
+    // listArray = listArray.filter(z => !itemsToBeRemoved.includes(z));
+    // console.log({ listArray, listArray1 });
 
     for (var subCheckbox of subCheckboxes) {
         const text = $(subCheckbox).val();
         itemsToBeRemoved.push(text)
+
+        console.log(itemsToBeRemoved);
 
         if ($(subCheckbox).is(":checked") == true) {
             subListArray.push(text);
         }
 
         console.log({ text, subCheckboxes, subListArray });
+
         if (subListArray.length === subCheckboxes.length) {
             $(parentCheckbox).prop("checked", true);
-            parentText = $(parentCheckbox).val()
+            parentText = $(parentCheckbox).val();
         } else if (subListArray.length !== subCheckboxes.length) {
             $(parentCheckbox).prop("checked", false);
-            parentText = ""
+            parentText = "";
+            console.log(parentText);
         }
     }
 
-    function ccc(z) {
-        // return !itemsToBeRemoved.includes(z);
-
-        itemsToBeRemoved.forEach(function (params) {
-            if (params === z) {
-                return false;
-            }
-        })
-    }
-
-    listArray = listArray.filter(z => !itemsToBeRemoved.includes(z))
-
-    // listArray = listArray.filter(z => {
-    //     return !itemsToBeRemoved.includes(z)
-    // })
-
-    // listArray = listArray.filter(ccc)
-
-    // listArray = listArray.filter(function (z) {
-    //     return !itemsToBeRemoved.includes(z)
-    // })
+    console.log({ listArray, listArray1 });
+    listArray = listArray.filter(z => !itemsToBeRemoved.includes(z));
+    console.log({ listArray, listArray1 });
 
     if (parentText != "") {
         listArray.push(parentText);
@@ -363,17 +365,11 @@ const checkIsChildChecked = function (listArray, subCheckboxes, parentCheckbox) 
         listArray.push(x);
     })
 
-    valueList2.innerHTML = listArray.join(", ")
+    listArray1 = listArray;
+    valueList2.innerHTML = listArray.join(", ");
 
     onSearchFieldChange();
     onSearchFieldChange1();
-}
-
-for (var subCheckbox1 of subCheckboxes1) {
-
-    subCheckbox1.addEventListener('click', function () {
-        checkIsChildChecked(listArray1, subCheckboxes1, "#event-topic-1")
-    })
 }
 
 
@@ -424,23 +420,11 @@ $('#parent-checkbox2').click(function (e) {
 var subCheckboxes2 = document.querySelectorAll('#child-checkbox2 input[type=checkbox]');
 
 for (var subCheckbox2 of subCheckboxes2) {
-    // subCheckbox2.addEventListener('click', function () {
-    //     if (this.checked == true) {
-    //         listArray1.push(this.value);
-    //         valueList2.innerHTML = listArray1.join(", ");
-    //     }
-    //     else {
-    //         listArray1 = listArray1.filter(e => e !== this.value);
-    //         valueList2.innerHTML = listArray1.join(", ");
-    //     }
-
-    //     onSearchFieldChange();
-    //     onSearchFieldChange1();
-    // })
 
     subCheckbox2.addEventListener('click', function () {
 
         checkIsChildChecked(listArray1, subCheckboxes2, "#event-topic-2");
+
     })
 }
 
@@ -465,45 +449,39 @@ $('#parent-checkbox3').click(function (e) {
         $(".sub-checkbox3").prop("checked", false);
         $(this).siblings('#child-checkbox3').slideUp();
     }
+
+    checkIsChildChecked(listArray1, subCheckboxes3, "#event-topic-3");
 });
 
 
-function checkbox3() {
-    let checkbox = document.getElementsByClassName('sub-checkbox3');
-    let ln = 0;
-    for (let i = 0; i < checkbox.length; i++) { //check for child checkboxes
-        if (checkbox[i].checked)
-            ln++;
-    }
+// function checkbox3() {
+//     let checkbox = document.getElementsByClassName('sub-checkbox3');
+//     let ln = 0;
+//     for (let i = 0; i < checkbox.length; i++) { //check for child checkboxes
+//         if (checkbox[i].checked)
+//             ln++;
+//     }
 
-    //select parent if all child are checked
-    let all = document.getElementsByClassName('sub-checkbox3');
-    let num = all.length;
+//     //select parent if all child are checked
+//     let all = document.getElementsByClassName('sub-checkbox3');
+//     let num = all.length;
 
-    if (ln == num) {
-        document.getElementById("event-topic-3").checked = true;
-    }
-    else {
-        document.getElementById("event-topic-3").checked = false;
-    }
-}
+//     if (ln == num) {
+//         document.getElementById("event-topic-3").checked = true;
+//     }
+//     else {
+//         document.getElementById("event-topic-3").checked = false;
+//     }
+// }
 
 
 var subCheckboxes3 = document.querySelectorAll('#child-checkbox3 input[type=checkbox]');
 
 for (var subCheckbox3 of subCheckboxes3) {
     subCheckbox3.addEventListener('click', function () {
-        if (this.checked == true) {
-            listArray1.push(this.value);
-            valueList2.innerHTML = listArray1.join(", ");
-        }
-        else {
-            listArray1 = listArray1.filter(e => e !== this.value);
-            valueList2.innerHTML = listArray1.join(", ");
-        }
 
-        onSearchFieldChange();
-        onSearchFieldChange1();
+        checkIsChildChecked(listArray1, subCheckboxes3, "#event-topic-3");
+
     })
 }
 
@@ -527,43 +505,36 @@ $('#parent-checkbox4').click(function (e) {
         $(".sub-checkbox4").prop("checked", false);
         $(this).siblings('#child-checkbox4').slideUp();
     }
+
+    checkIsChildChecked(listArray1, subCheckboxes4, "#event-topic-4");
 });
 
-function checkbox4() {
-    let checkbox = document.getElementsByClassName('sub-checkbox4');
-    let ln = 0;
-    for (let i = 0; i < checkbox.length; i++) { //check for child checkboxes
-        if (checkbox[i].checked)
-            ln++;
-    }
+// function checkbox4() {
+//     let checkbox = document.getElementsByClassName('sub-checkbox4');
+//     let ln = 0;
+//     for (let i = 0; i < checkbox.length; i++) { //check for child checkboxes
+//         if (checkbox[i].checked)
+//             ln++;
+//     }
 
-    //select parent if all child are checked
-    let all = document.getElementsByClassName('sub-checkbox4');
-    let num = all.length;
+//     //select parent if all child are checked
+//     let all = document.getElementsByClassName('sub-checkbox4');
+//     let num = all.length;
 
-    if (ln == num) {
-        document.getElementById("event-topic-4").checked = true;
-    }
-    else {
-        document.getElementById("event-topic-4").checked = false;
-    }
-}
+//     if (ln == num) {
+//         document.getElementById("event-topic-4").checked = true;
+//     }
+//     else {
+//         document.getElementById("event-topic-4").checked = false;
+//     }
+// }
 
 var subCheckboxes4 = document.querySelectorAll('#child-checkbox4 input[type=checkbox]');
 
 for (var subCheckbox4 of subCheckboxes4) {
     subCheckbox4.addEventListener('click', function () {
-        if (this.checked == true) {
-            listArray1.push(this.value);
-            valueList2.innerHTML = listArray1.join(", ");
-        }
-        else {
-            listArray1 = listArray1.filter(e => e !== this.value);
-            valueList2.innerHTML = listArray1.join(", ");
-        }
 
-        onSearchFieldChange();
-        onSearchFieldChange1();
+        checkIsChildChecked(listArray1, subCheckboxes4, "#event-topic-4");
     })
 }
 
@@ -588,44 +559,38 @@ $('#parent-checkbox5').click(function (e) {
         $(".sub-checkbox5").prop("checked", false);
         $(this).siblings('#child-checkbox5').slideUp();
     }
+
+    checkIsChildChecked(listArray1, subCheckboxes5, "#event-topic-5");
 });
 
 
-function checkbox5() {
-    let checkbox = document.getElementsByClassName('sub-checkbox5');
-    let ln = 0;
-    for (let i = 0; i < checkbox.length; i++) { //check for child checkboxes
-        if (checkbox[i].checked)
-            ln++;
-    }
+// function checkbox5() {
+//     let checkbox = document.getElementsByClassName('sub-checkbox5');
+//     let ln = 0;
+//     for (let i = 0; i < checkbox.length; i++) { //check for child checkboxes
+//         if (checkbox[i].checked)
+//             ln++;
+//     }
 
-    //select parent if all child are checked
-    let all = document.getElementsByClassName('sub-checkbox5');
-    let num = all.length;
+//     //select parent if all child are checked
+//     let all = document.getElementsByClassName('sub-checkbox5');
+//     let num = all.length;
 
-    if (ln == num) {
-        document.getElementById("event-topic-5").checked = true;
-    }
-    else {
-        document.getElementById("event-topic-5").checked = false;
-    }
-}
+//     if (ln == num) {
+//         document.getElementById("event-topic-5").checked = true;
+//     }
+//     else {
+//         document.getElementById("event-topic-5").checked = false;
+//     }
+// }
 
 var subCheckboxes5 = document.querySelectorAll('#child-checkbox5 input[type=checkbox]');
 
 for (var subCheckbox5 of subCheckboxes5) {
     subCheckbox5.addEventListener('click', function () {
-        if (this.checked == true) {
-            listArray1.push(this.value);
-            valueList2.innerHTML = listArray1.join(", ");
-        }
-        else {
-            listArray1 = listArray1.filter(e => e !== this.value);
-            valueList2.innerHTML = listArray1.join(", ");
-        }
 
-        onSearchFieldChange();
-        onSearchFieldChange1();
+        checkIsChildChecked(listArray1, subCheckboxes5, "#event-topic-5");
+
     })
 }
 
@@ -649,43 +614,38 @@ $('#parent-checkbox6').click(function (e) {
         $(".sub-checkbox6").prop("checked", false);
         $(this).siblings('#child-checkbox6').slideUp();
     }
+
+    checkIsChildChecked(listArray1, subCheckboxes6, "#event-topic-6");
+
 });
 
-function checkbox6() {
-    let checkbox = document.getElementsByClassName('sub-checkbox6');
-    let ln = 0;
-    for (let i = 0; i < checkbox.length; i++) { //check for child checkboxes
-        if (checkbox[i].checked)
-            ln++;
-    }
+// function checkbox6() {
+//     let checkbox = document.getElementsByClassName('sub-checkbox6');
+//     let ln = 0;
+//     for (let i = 0; i < checkbox.length; i++) { //check for child checkboxes
+//         if (checkbox[i].checked)
+//             ln++;
+//     }
 
-    //select parent if all child are checked
-    let all = document.getElementsByClassName('sub-checkbox6');
-    let num = all.length;
+//     //select parent if all child are checked
+//     let all = document.getElementsByClassName('sub-checkbox6');
+//     let num = all.length;
 
-    if (ln == num) {
-        document.getElementById("event-topic-6").checked = true;
-    }
-    else {
-        document.getElementById("event-topic-6").checked = false;
-    }
-}
+//     if (ln == num) {
+//         document.getElementById("event-topic-6").checked = true;
+//     }
+//     else {
+//         document.getElementById("event-topic-6").checked = false;
+//     }
+// }
 
 var subCheckboxes6 = document.querySelectorAll('#child-checkbox6 input[type=checkbox]');
 
 for (var subCheckbox6 of subCheckboxes6) {
     subCheckbox6.addEventListener('click', function () {
-        if (this.checked == true) {
-            listArray1.push(this.value);
-            valueList2.innerHTML = listArray1.join(", ");
-        }
-        else {
-            listArray1 = listArray1.filter(e => e !== this.value);
-            valueList2.innerHTML = listArray1.join(", ");
-        }
 
-        onSearchFieldChange();
-        onSearchFieldChange1();
+        checkIsChildChecked(listArray1, subCheckboxes6, "#event-topic-6");
+
     })
 }
 
